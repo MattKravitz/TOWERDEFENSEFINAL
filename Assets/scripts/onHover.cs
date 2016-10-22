@@ -2,34 +2,38 @@
 using System.Collections;
 
 public class onHover : MonoBehaviour {
-
-    private bool meow;
+    
+    private Vector3 initialPosition;
+    private Vector3 endPosition;
+    private Vector3 dir;
+    private Vector3 dir2;
+    
 	// Use this for initialization
 	void Start () {
-        meow = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (meow == false)
-        {
-            GetComponent<Renderer>().material.color = new Color(255, 255, 255);
-           
-
-        }
-        else
-        {
-            meow = false;
-        }
+        
+        initialPosition = this.transform.position;
+        endPosition = this.transform.position + Vector3.up * .5f;  
     }
-
+	
     void OnMouseOver()
     {
+        if (this.transform.position != endPosition)
+        {
+            dir2 = endPosition - this.transform.position;
+            this.transform.Translate(dir2.normalized * Time.deltaTime * 6f, Space.World);
 
-        Debug.Log("mewo");
-        GetComponent<Renderer>().material.color = new Color(0, 0, 255);
-        meow = true;
-
-
+        }
+        if (Vector3.Distance(this.transform.position, endPosition) <= .1f)
+        {
+            this.transform.position = endPosition;
+        }
     }
+    void OnMouseExit()
+    {
+        this.transform.position = initialPosition;
+    }
+    
+    
+
+    
 }

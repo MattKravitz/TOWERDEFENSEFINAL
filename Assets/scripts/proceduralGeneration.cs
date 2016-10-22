@@ -55,7 +55,8 @@ public class proceduralGeneration : MonoBehaviour {
         enemyPaths[18] = 1;
         Instantiate(enemyPath, points[18].position, points[18].rotation);
         currentPosition = 18;
-     
+        addWaypoint(currentPosition);
+
         //set start and end point
 
         Instantiate(enemyStart, points[17].position, points[17].rotation);
