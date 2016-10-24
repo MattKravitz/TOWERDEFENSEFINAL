@@ -20,7 +20,7 @@ public class onHover : MonoBehaviour {
         if (this.transform.position != endPosition)
         {
             dir2 = endPosition - this.transform.position;
-            this.transform.Translate(dir2.normalized * Time.deltaTime * 6f, Space.World);
+            this.transform.Translate(dir2.normalized * Time.deltaTime * 5f, Space.World);
 
         }
         if (Vector3.Distance(this.transform.position, endPosition) <= .1f)
