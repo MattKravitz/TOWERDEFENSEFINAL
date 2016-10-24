@@ -4,15 +4,13 @@ using System.Collections;
 public class ActiveTowerRotate : MonoBehaviour {
 
     private Rigidbody body;
-    private float speed = 10f;
+    private float speed = 180f;
     private static string inputName = "Horizontal";
     private float inputValue;
 
     void Awake()
     {
-        body = GetComponent<Rigidbody>();
         inputValue = 0f;
-        body.isKinematic = false;
     }
     // Use this for initialization
 	void Start () {
@@ -33,14 +31,11 @@ public class ActiveTowerRotate : MonoBehaviour {
 
     private void Turn()
     {
-        if(inputValue != 0)
-        {
-            float turn = speed * Time.deltaTime;
+        
+            float turn = inputValue * speed * Time.deltaTime;
 
-            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f); //Turns the tower around the y-axis
-
-            body.MoveRotation(body.rotation * turnRotation);
-        }
+            this.transform.Rotate(0f, turn, 0f);
+        
         
     }
 }
