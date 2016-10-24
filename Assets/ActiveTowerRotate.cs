@@ -4,7 +4,7 @@ using System.Collections;
 public class ActiveTowerRotate : MonoBehaviour {
 
     private Rigidbody body;
-    private float speed = 180f;
+    private float speed = 210f;
     private static string inputName = "Horizontal";
     private float inputValue;
 
