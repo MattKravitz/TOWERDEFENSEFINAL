@@ -36,7 +36,7 @@ public class CameraBehavior : MonoBehaviour {
 	// Update is called once per frame
 	public void Update () {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             if(current_camera > 2)
             {
@@ -48,7 +48,7 @@ public class CameraBehavior : MonoBehaviour {
             }
             EnableCamera();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             if (current_camera < 1)
             {

@@ -46,10 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ActiveTowerRotate.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\CameraBehavior.cs" />
-=======
->>>>>>> dfba7ad52bb7b9bcca6634f42e3039cd20893f25
      <Compile Include="Assets\scripts\activeTower.cs" />
      <Compile Include="Assets\scripts\enemy.cs" />
      <Compile Include="Assets\scripts\lowerLevelSpawns.cs" />
