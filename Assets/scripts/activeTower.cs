@@ -20,7 +20,7 @@ namespace Assets.scripts
         void Start()
         {
             attackArea = gameObject.AddComponent<SphereCollider>();
-            towerPosition = this.transform.position;
+            towerPosition = transform.position;
             createAttackArea();
         }
         /**
@@ -43,7 +43,6 @@ namespace Assets.scripts
         {
             attackArea.enabled = true;
             attackArea.isTrigger = true;
-            attackArea.center = towerPosition;
             attackArea.radius = attackRadius;
         }
 
