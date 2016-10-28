@@ -32,6 +32,7 @@ namespace Assets.scripts
             if (targetList.Count != 0)
             {
                 currentTarget = targetList[0];
+                Debug.Log("Primary target set");
             }
         }
         void attack()
@@ -50,10 +51,11 @@ namespace Assets.scripts
         {
             if (col.gameObject.name == "enemy")
             {
-                //enemy newEnemy = col.gameObject;
+                
                 try
                 {
                     targetList.Add(col.gameObject);
+                    Debug.Log("new target added to list");
                 }
                 catch (System.Exception e) { }
             }
@@ -63,6 +65,8 @@ namespace Assets.scripts
             if (targetList.Contains(col.gameObject))
             {
                 targetList.Remove(col.gameObject);
+                Debug.Log("Target removed from list");
+                setTarget();
             }
         }
     }
