@@ -55,6 +55,7 @@
      <Compile Include="Assets\scripts\proceduralGeneration.cs" />
      <Compile Include="Assets\scripts\sun.cs" />
      <Compile Include="Assets\scripts\towerPlacement.cs" />
+     <Compile Include="Assets\scripts\towerVariables.cs" />
      <Compile Include="Assets\scripts\waveSpawner.cs" />
      <Compile Include="Assets\scripts\waypoints.cs" />
  <Reference Include="UnityEngine.UI">

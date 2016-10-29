@@ -8,7 +8,7 @@ public class enemy : MonoBehaviour {
     private Vector3 target;
     private int wavepointIndex = 0;
 
-    private int health = 0;
+    public int health = 0;
     private int moneyValue = 0;
     
  
