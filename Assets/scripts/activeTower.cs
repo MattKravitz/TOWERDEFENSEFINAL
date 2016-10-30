@@ -22,6 +22,7 @@ namespace Assets.scripts
             attackArea = gameObject.AddComponent<SphereCollider>();
             towerPosition = transform.position;
             createAttackArea();
+            Debug.Log("Tower Placed");
         }
         /**
          * set the target of a tower to the first element in the target list
@@ -47,20 +48,21 @@ namespace Assets.scripts
             attackArea.radius = attackRadius;
         }
 
-        void OnTriggerEnter(Collision col)
+        void OnTriggerEnter(Collider col)
         {
-            if (col.gameObject.name == "enemy")
+            if (col.gameObject.tag == "enemy")
             {
                 
                 try
                 {
                     targetList.Add(col.gameObject);
                     Debug.Log("new target added to list");
+                    setTarget();
                 }
                 catch (System.Exception e) { }
             }
         }
-        void OnTriggerExit(Collision col)
+        void OnTriggerExit(Collider col)
         {
             if (targetList.Contains(col.gameObject))
             {

@@ -19,7 +19,7 @@ public class enemy : MonoBehaviour {
         //this is just the basic way of how im going to give every enemy its attributes
         target = proceduralGeneration.myWaypointsPositions[0];
         speed = Random.Range(1, 5);
-       
+        this.tag = "enemy";
         
         if(speed == 1)
         {
