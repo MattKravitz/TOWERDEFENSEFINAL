@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ActiveTowerRotate : MonoBehaviour {
 
-    private Rigidbody body;
+    public Transform body;
+    public Transform bullet;
     private float speed = 210f;
     private static string inputName = "Horizontal";
     private float inputValue;
@@ -14,13 +15,19 @@ public class ActiveTowerRotate : MonoBehaviour {
     }
     // Use this for initialization
 	void Start () {
-        
+
+       
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         inputValue = Input.GetAxis(inputName);
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Instantiate(bullet, body.position, body.rotation);
+        }
         
 	}
 
