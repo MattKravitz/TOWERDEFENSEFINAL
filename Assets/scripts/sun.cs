@@ -11,7 +11,7 @@ public class sun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.RotateAround(Vector3.zero, new Vector3(2, 2, 4), 1f * Time.deltaTime);
-        transform.LookAt(Vector3.zero);
+        transform.RotateAround(Vector3.zero, new Vector3(2, 2, 4), 1f * Time.deltaTime); //Rotates around on a Vector with 2 2 4 as its XYZ coordinates
+        transform.LookAt(Vector3.zero); //Points the light at the origin
 	}
 }
