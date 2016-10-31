@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.scripts
 {
-    class activeTower : MonoBehaviour
+    public class activeTower : MonoBehaviour
     {
         public float shotSpeed = 1; //fire rate of the tower
         //TODO: add a projectile object that takes in the tower damage
@@ -57,7 +57,10 @@ namespace Assets.scripts
                 {
                     targetList.Add(col.gameObject);
                     Debug.Log("new target added to list");
-                    setTarget();
+                    if(currentTarget == null)
+                    {
+                        setTarget();
+                    }
                 }
                 catch (System.Exception e) { }
             }
