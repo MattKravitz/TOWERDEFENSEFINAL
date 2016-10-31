@@ -2,16 +2,20 @@
 using System.Collections;
 
 public class towerVariables : MonoBehaviour {
-
+    [Header("Enemy Attributes")]
     public int enemyHealth;
     public float enemySpeed;
     public int enemyMV; //enemyMoneyValue
 
+    [Header("Tower Attributes")]
     public float towerShotSpeed;
     public float towerDamage;
-    public float towerRange; 
+    public float towerRange;
 
-
+    // "p_" refers to variables used to configure projectile mechanics
+    [Header("Projectile Setup")]
+    public GameObject p_projectilePrefab;
+    public Transform p_shootPosition;
 
     // Use this for initialization
     void Start () {
@@ -89,4 +93,22 @@ public class towerVariables : MonoBehaviour {
     {
         return towerDamage;
     }
+
+
+    public void fire()
+    {
+/**This is a temporary position configuration for the prototype only
+*   this will produce awkward graphics since the projectile will be launched from the same coordinate as the tower.
+**/
+        p_shootPosition.position = transform.position; 
+        GameObject projectileShot = (GameObject)Instantiate(p_projectilePrefab, p_shootPosition);
+        projectile projectile = projectileShot.GetComponent<projectile>();
+
+        if(projectile != null)
+        {
+           // projectile.trace(currentTarget.transform);
+        }
+
+    }
+
 }
