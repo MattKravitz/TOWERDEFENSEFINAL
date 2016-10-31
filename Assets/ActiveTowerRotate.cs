@@ -9,6 +9,8 @@ public class ActiveTowerRotate : MonoBehaviour {
     private static string inputName = "Horizontal";
     private float inputValue;
 
+    private float turn;
+
     void Awake()
     {
         inputValue = 0f;
@@ -22,27 +24,26 @@ public class ActiveTowerRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        inputValue = Input.GetAxis(inputName);
-
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Instantiate(bullet, body.position, body.rotation);
         }
-        
-	}
 
-    private void FixedUpdate()
-    {
-        Turn();
+        if (Input.GetKey(KeyCode.RightArrow) && !(Input.GetKey(KeyCode.LeftArrow))) {
+
+            turn = 5;
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow) && !(Input.GetKey(KeyCode.RightArrow))) {
+
+            turn = -5;
+        }
+        else
+        {
+            turn = 0;
+        }
+
+        body.Rotate(0, turn, 0);
+
     }
-
-    private void Turn()
-    {
-        
-            float turn = inputValue * speed * Time.deltaTime;
-
-            this.transform.Rotate(0f, turn, 0f);
-        
-        
-    }
+    
 }
