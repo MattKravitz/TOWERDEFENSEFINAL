@@ -104,11 +104,11 @@ public class proceduralGeneration : MonoBehaviour {
         //meow means you got to the end
         while(meow == 0 )
         {
-            
+            //we move right first
             moveRight();
             
             
-
+            //move left second if we can
             if (enemyPaths[237] != 1 || enemyPaths[222] != 1 || enemyPaths[254] != 1 || enemyPaths[239] != 1 )
             {
                 if (currentPosition <= 223)
@@ -117,7 +117,7 @@ public class proceduralGeneration : MonoBehaviour {
                 }
             }
            
-
+            //then we end it if we get to the player tower
             if (enemyPaths[237] == 1 || enemyPaths[222] == 1 || enemyPaths[254] == 1 || enemyPaths[239] ==1 )
             {
                 meow = 1;
@@ -126,7 +126,7 @@ public class proceduralGeneration : MonoBehaviour {
 
     }
     
-    void moveRight()
+    void moveRight()//this is all the code for moving right in the algoithm
     {
         rand = 0;
         rand = Random.Range(1, 7);
@@ -151,7 +151,7 @@ public class proceduralGeneration : MonoBehaviour {
             }
         }
     }
-    void moveLeft()
+    void moveLeft()//all the code for moving left in the algorithm
     {
         rand = 0;
         rand = Random.Range(1, 6);
@@ -175,14 +175,14 @@ public class proceduralGeneration : MonoBehaviour {
         }
         
     }
-    void addWaypoint(int currentPosition)
+    void addWaypoint(int currentPosition)//this how we add a waypoint to the map that the enemies follow
     {
         
         Instantiate(this.waypoint, redpoints[currentPosition].position, redpoints[currentPosition].rotation);
         myWaypoints.Add(this.waypoint);
         myWaypointsPositions.Add(redpoints[currentPosition].position);
     }
-    void spawnTowerSpace(int i)
+    void spawnTowerSpace(int i)//this is how we get the different height terrain tiles on the mao
     {
         int rand2 = Random.Range(1, 11);
         Instantiate(gamePiece, points[i].position+Vector3.up*rand2/40, points[i].rotation);

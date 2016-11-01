@@ -15,7 +15,7 @@ public class onStartButtonClick : MonoBehaviour {
     
     void OnMouseDown()
     {
-        waveSpawner.setStart();
+        waveSpawner.setStart();//this starts the wave
         Debug.Log("wave starting...");
     }
 }

@@ -24,27 +24,24 @@ public class waveSpawner : MonoBehaviour {
 
     void Update()
     {
-        if (start == true) {
-            if (countdown <= 0f || i==1)
+
+        if (start == true) {//if the enenmy spawn has been clicked
+            if (countdown <= 0f || i==1)//when its ready to spawn next enemy
             {
-                SpawnEnemy();
-                randCountdown = Random.Range(1,7);
-                countdown = randCountdown;
+                Instantiate(enemyPrefab, proceduralGeneration.points[17].position, proceduralGeneration.points[17].rotation);//spawn next enemy
+                randCountdown = Random.Range(1,7);//set rand number
+                countdown = randCountdown;//set the next time for spawn
                 i++;
             }
 
-            countdown -= Time.deltaTime;
+            countdown -= Time.deltaTime;//decrement the countdown by timepassed
         }
     }
    
-    void SpawnEnemy()
-    {
-        Instantiate(enemyPrefab, proceduralGeneration.points[17].position, proceduralGeneration.points[17].rotation);
-    }
-
+    
     public static void setStart()
     {
-        start = true;
+        start = true;//if the spawn has been clicked we set this to true
     }
 }
 
