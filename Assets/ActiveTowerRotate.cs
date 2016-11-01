@@ -12,19 +12,19 @@ public class ActiveTowerRotate : MonoBehaviour {
     /// </summary>
 	void Update () {
 
-        //if the user presses the up key, create a bullet with the same rotation as the tower
-        if (Input.GetKeyDown(KeyCode.UpArrow)) 
+        //if the user presses the w key, create a bullet with the same rotation as the tower
+        if (Input.GetKeyDown(KeyCode.W)) 
         {
             Instantiate(bullet, body.position, body.rotation);
         }
 
-        //if the right arrow is pressed, rotate right
-        if (Input.GetKey(KeyCode.RightArrow) && !(Input.GetKey(KeyCode.LeftArrow))) {
+        //if the d key is pressed, rotate right
+        if (Input.GetKey(KeyCode.D) && !(Input.GetKey(KeyCode.A))) {
 
             turn = 5;
         }
-        //if the left arrow is pressed, rotate left
-        else if(Input.GetKey(KeyCode.LeftArrow) && !(Input.GetKey(KeyCode.RightArrow))) {
+        //if the a key is pressed, rotate left
+        else if(Input.GetKey(KeyCode.A) && !(Input.GetKey(KeyCode.D))) {
 
             turn = -5;
         }

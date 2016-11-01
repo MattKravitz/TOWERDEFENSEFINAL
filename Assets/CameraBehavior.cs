@@ -32,7 +32,7 @@ public class CameraBehavior : MonoBehaviour {
     /// </summary>
 	public void Update () {
 
-        if (Input.GetKeyDown(KeyCode.A)) //if the a key is pressed, increment current_camera
+        if (Input.GetKeyDown(KeyCode.Q)) //if the q key is pressed, increment current_camera
         {
             if (current_camera > 2) //make sure it is a valid index
             {
@@ -44,7 +44,7 @@ public class CameraBehavior : MonoBehaviour {
             }
             EnableCamera(); //enable camera
         }
-        else if (Input.GetKeyDown(KeyCode.D)) //if the d key is pressed, increment downwards
+        else if (Input.GetKeyDown(KeyCode.E)) //if the e key is pressed, increment downwards
         {
             if (current_camera < 1)
             {
