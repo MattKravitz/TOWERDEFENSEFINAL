@@ -4,41 +4,37 @@ using System.Collections.Generic;
 
 public class CameraBehavior : MonoBehaviour {
 
-    public Transform CameraGroup;
-    public Transform[] Cameras;
+    public Transform CameraGroup; //Game object that contains the 4 cameras
+    public Transform[] Cameras; //used to store the 4 cameras in CameraGroup
 
-    private static string inputName = "Camera";
-    private float inputValue;
+    private int current_camera; //used to designate the active camera
 
-    private int current_camera;
-
-    public void Awake()
+    /// <summary>
+    /// Initializes the cameras
+    /// </summary>
+    public void Awake() 
     {
         current_camera = 0;
 
         Cameras = new Transform[CameraGroup.childCount];
 
+        //store the cameras in the CameraGroup in this array
         for (int i = 0; i < Cameras.Length; i++)
         {
             Cameras[i] = CameraGroup.GetChild(i);
         }
 
-        EnableCamera();
-
-
-    }
-
-    // Use this for initialization
-    public void Start () {
-        
+        EnableCamera(); //enables the current camera
     }
 	
-	// Update is called once per frame
+	/// <summary>
+    /// Used to keep track of user input
+    /// </summary>
 	public void Update () {
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A)) //if the a key is pressed, increment current_camera
         {
-            if(current_camera > 2)
+            if (current_camera > 2) //make sure it is a valid index
             {
                 current_camera = 0;
             }
@@ -46,9 +42,9 @@ public class CameraBehavior : MonoBehaviour {
             {
                 current_camera += 1;
             }
-            EnableCamera();
+            EnableCamera(); //enable camera
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D)) //if the d key is pressed, increment downwards
         {
             if (current_camera < 1)
             {
@@ -59,20 +55,18 @@ public class CameraBehavior : MonoBehaviour {
                 current_camera -= 1;
             }
             EnableCamera();
-            Debug.Log(current_camera);
         }
-
-        
     }
 
+    /// <summary>
+    ///  Used to enable the camera at index current_camera
+    /// </summary>
     public void EnableCamera()
     {
-
-        foreach (Transform camera in Cameras){
+        foreach (Transform camera in Cameras){ //disable all cameras
             camera.gameObject.SetActive(false);
         }
-
-        Cameras[current_camera].gameObject.SetActive(true);
+        Cameras[current_camera].gameObject.SetActive(true); //enable the active camera
     }
 
 
