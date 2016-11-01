@@ -36,55 +36,65 @@ public class towerVariables : MonoBehaviour {
 
     }
 
+    //Sets the enemy speed
     public void setEnemySpeed(float speed)
     {
         enemySpeed = speed;
 
     }
 
+    //Returns the enemey speed
     public float getEnemySpeed()
     {
         return enemySpeed; 
     }
 
+    //Sets the money multiplier
     public void setMoneyMultiplier(int money)
     {
         enemyMV = money;
     }
 
+    //Returns the money multiplier
     public int getMoneyMultiplier()
     {
         return enemyMV; 
     }
 
+    //Sets the tower shot speed
     public void setTowerShotSpeed(float shotSpeed)
     {
         towerShotSpeed = shotSpeed;
 
     }
 
+    //Returns the tower shot speed
     public float getTowerSpeed()
     {
         return towerShotSpeed;
     }
 
+    //Sets the tower range
     public void setTowerRange(float range)
     {
         towerRange = range;
 
     }
 
+    //Returns the tower range
     public float getTowerRange()
     {
         return towerRange;
     }
 
+    //Sets the tower damage
     public void setTowerDamage(float damage)
     {
         towerDamage = damage;
 
     }
 
+    //Returns the tower damage
     public float getTowerDamage()
     {
         return towerDamage;

@@ -67,9 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ActiveTowerRotate.cs" />
+    <Compile Include="Assets\BulletBehavior.cs" />
     <Compile Include="Assets\CameraBehavior.cs" />
     <Compile Include="Assets\scripts\activeTower.cs" />
     <Compile Include="Assets\scripts\enemy.cs" />
+    <Compile Include="Assets\scripts\laserTower.cs" />
     <Compile Include="Assets\scripts\lowerLevelSpawns.cs" />
     <Compile Include="Assets\scripts\onHover.cs" />
     <Compile Include="Assets\scripts\onStartButtonClick.cs" />

@@ -31,18 +31,20 @@ public class towerPlacement : MonoBehaviour {
 
 	}
 
+
     void OnMouseDown()
     {
-        
+        //Checks all spots on the game board
         for (int i = 0; i < 255; i++)
         {
-            if (placement == proceduralGeneration.points[i].position)
+            if (placement == proceduralGeneration.points[i].position) //If one of the spots is clicked, stores what index it was
             {
                  j = i;
             
             }
         }
 
+        //Fills the spot on the game board with a tower
         Instantiate(tower, proceduralGeneration.redpoints[j].position + Vector3.up, proceduralGeneration.redpoints[j].rotation);
         towerCheck[j] = 1;
 
