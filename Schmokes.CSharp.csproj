@@ -72,10 +72,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActiveTowerRotate.cs" />
+    <Compile Include="Assets\BulletBehavior.cs" />
+    <Compile Include="Assets\CameraBehavior.cs" />
+    <Compile Include="Assets\scripts\activeTower.cs" />
     <Compile Include="Assets\scripts\enemy.cs" />
+    <Compile Include="Assets\scripts\laserTower.cs" />
     <Compile Include="Assets\scripts\lowerLevelSpawns.cs" />
     <Compile Include="Assets\scripts\onHover.cs" />
+    <Compile Include="Assets\scripts\onStartButtonClick.cs" />
     <Compile Include="Assets\scripts\proceduralGeneration.cs" />
+    <Compile Include="Assets\scripts\sun.cs" />
+    <Compile Include="Assets\scripts\towerPlacement.cs" />
+    <Compile Include="Assets\scripts\towerVariables.cs" />
     <Compile Include="Assets\scripts\waveSpawner.cs" />
     <Compile Include="Assets\scripts\waypoints.cs" />
   </ItemGroup>

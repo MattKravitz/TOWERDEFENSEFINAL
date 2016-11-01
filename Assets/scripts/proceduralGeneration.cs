@@ -90,7 +90,7 @@ public class proceduralGeneration : MonoBehaviour {
         {
             if (enemyPaths[i] == 0)
             {
-                Instantiate(gamePiece, points[i].position, points[i].rotation);
+                spawnTowerSpace(i);
             }
 
         }
@@ -181,5 +181,10 @@ public class proceduralGeneration : MonoBehaviour {
         Instantiate(this.waypoint, redpoints[currentPosition].position, redpoints[currentPosition].rotation);
         myWaypoints.Add(this.waypoint);
         myWaypointsPositions.Add(redpoints[currentPosition].position);
+    }
+    void spawnTowerSpace(int i)
+    {
+        int rand2 = Random.Range(1, 11);
+        Instantiate(gamePiece, points[i].position+Vector3.up*rand2/40, points[i].rotation);
     }
 }
