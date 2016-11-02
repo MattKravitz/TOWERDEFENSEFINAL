@@ -6,7 +6,7 @@ public class towerPlacement : MonoBehaviour {
     private Vector3 placement;
     private Vector3 down;
     private int j;
-    public Transform tower;
+    public Transform automatedTower;
     public static int[] towerCheck = new int[256];
 
     // Use this for initialization
@@ -43,7 +43,7 @@ public class towerPlacement : MonoBehaviour {
             }
         }
 
-        Instantiate(tower, proceduralGeneration.redpoints[j].position + Vector3.up, proceduralGeneration.redpoints[j].rotation);
+        Instantiate(automatedTower, proceduralGeneration.redpoints[j].position + Vector3.up, proceduralGeneration.redpoints[j].rotation);
         towerCheck[j] = 1;
 
     }

@@ -4,17 +4,17 @@ public class projectile : MonoBehaviour {
 
     [Header("Projectile Attributes")]
     public float m_damage;
-    public float m_projectileSpeed = 60f;
-    public GameObject collisionEffect;
+    public float m_projectileSpeed = 40f;
+    public GameObject ballisticsEffect;
 
 
     private Transform m_shootLocation;
     private Transform m_target;
+    private enemy m_targetEnemy;
 
-
-   void initializeProjectile(float dmgDealtByProj, Transform shootPoint)
+  public void initializeProjectile(float dmgDealtByProj, Transform shootPoint)
      {
-        m_damage = dmgDealtByProj;
+       m_damage = dmgDealtByProj;
        m_shootLocation = shootPoint;
 
     }
@@ -22,7 +22,7 @@ public class projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float distanceTraveled = 0;
+        
 
 	  if(m_target == null)
         {
@@ -31,20 +31,22 @@ public class projectile : MonoBehaviour {
         }
 
         Vector3 direction = m_target.position - transform.position;
-        distanceTraveled = m_projectileSpeed * Time.deltaTime;
+        float distanceTraveled = m_projectileSpeed * Time.deltaTime;
 
         if(checkCollision(direction.magnitude, distanceTraveled))
         {
             actionOnCollision();
+            return;
         }
 
         transform.Translate(direction.normalized * distanceTraveled, Space.World);
 	}
 
     //function responsible for target following
-    public void trace(Transform target)
+    public void trace(Transform target, enemy targetEnemy)
     {
         m_target = target;
+        m_targetEnemy = targetEnemy;
     }
     
 
@@ -62,13 +64,18 @@ public class projectile : MonoBehaviour {
 
   void actionOnCollision()
     {
-        GameObject impactEffect = (GameObject)Instantiate(collisionEffect, transform.position, transform.rotation);
+        GameObject impactEffect = (GameObject)Instantiate(ballisticsEffect, transform.position, transform.rotation);
 
-        Destroy(impactEffect, 3f);
+        Destroy(impactEffect, 1f);
         Destroy(gameObject);
+        Debug.Log("Target Hit");
+        return;
     }
 
-
+    public void setShotPoint(Transform firePoint)
+    {
+        m_shootLocation = firePoint;
+    }
 /**
 *   Functions to Implement later
 *    void aoeDetection()

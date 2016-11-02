@@ -9,28 +9,121 @@ public class towerVariables : MonoBehaviour {
 
     [Header("Tower Attributes")]
     public float towerShotSpeed;
-    public float towerDamage;
-    public float towerRange;
+    public float towerDamage = 0;
+    public float towerRange = 1f;
+    public Transform m_target;
+    private enemy targetedEnemy;
 
-    // "p_" refers to variables used to configure projectile mechanics
-    [Header("Projectile Setup")]
-    public GameObject p_projectilePrefab;
-    public Transform p_shootPosition;
+
+    
+    [Header("Projectile/Shooting Setup")]
+    public GameObject projectile;
+    public Transform shootPosition;
+    public float shotCooldown = 0f;
+
+    [Header("Targeting Variables")]
+    public string enemiesTag = "enemy";
+    public Transform rotatingPiece;
+    public float rotationVelocity = 5f;
 
     // Use this for initialization
-    void Start () {
-	
+    void Start ()
+    {
+        InvokeRepeating("refreshTarget", 0f, .5f);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+	    if(m_target == null)
+        {
+            return; //empty return statement to kill update function if no target exists.
+        }
+        else
+        {
+            acquireTarget();
+            if (shotCooldown <= 0f)
+            {
+                fire();
+                shotCooldown = 1f / towerShotSpeed;
+            }
+
+            shotCooldown -= Time.deltaTime;
+        }
 	}
+
+
+
+    public void fire()
+    {
+        /**This is a temporary position configuration for the prototype only
+        *   this will produce awkward graphics since the projectile will be launched from the same coordinate as the tower.
+        **/
+        Debug.Log("Firing");
+        GameObject projectileShot = (GameObject)Instantiate(projectile, shootPosition.position, shootPosition.rotation);
+        projectile projectile1 = projectileShot.GetComponent<projectile>();
+
+        //projectile1.initializeProjectile(towerDamage, shootPosition);
+
+        if (projectile != null)
+        {
+          
+           projectile1.trace(m_target.transform, targetedEnemy);
+        }
+
+    }
+
+   // void OnDrawGizmosSelected()
+    //{
+     //   Gizmos.DrawWireSphere(transform.position, towerRange);
+   // }
+   void acquireTarget()
+    {
+        Debug.Log("HAS TARGET");
+        Vector3 direction = m_target.position - transform.position;
+        Quaternion towerRotation = Quaternion.LookRotation(direction);
+        Vector3 convertedRotation = Quaternion.Lerp(rotatingPiece.rotation, towerRotation, Time.deltaTime * rotationVelocity).eulerAngles;
+        rotatingPiece.rotation = Quaternion.Euler(0f, convertedRotation.y, 0f);
+    }
+    void refreshTarget()
+    {
+        GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag(enemiesTag);
+        float smallestDistance = Mathf.Infinity;
+        GameObject closestEnemy = null;
+
+        foreach(GameObject enemy in enemiesArray)
+        {
+            float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if(enemyDistance <= smallestDistance)
+            {
+                smallestDistance = enemyDistance;
+                closestEnemy = enemy;
+                Debug.Log("Redefining Target");
+            }
+
+        }
+
+        if(closestEnemy != null && smallestDistance <= towerRange)
+        {
+            Debug.Log("Target Selected");
+            m_target = closestEnemy.transform;
+            targetedEnemy = closestEnemy.GetComponent<enemy>();
+        }
+        else
+        {
+            m_target = null;
+            Debug.Log("No Target");
+        }
+    }
+
+
+
 
     //Sets the enemy health to the paramater
     public void setEnemyHealth(int health)
     {
-        enemyHealth = health; 
+        enemyHealth = health;
     }
 
     //Returns the enemyHealth
@@ -48,7 +141,7 @@ public class towerVariables : MonoBehaviour {
 
     public float getEnemySpeed()
     {
-        return enemySpeed; 
+        return enemySpeed;
     }
 
     public void setMoneyMultiplier(int money)
@@ -58,7 +151,7 @@ public class towerVariables : MonoBehaviour {
 
     public int getMoneyMultiplier()
     {
-        return enemyMV; 
+        return enemyMV;
     }
 
     public void setTowerShotSpeed(float shotSpeed)
@@ -93,22 +186,4 @@ public class towerVariables : MonoBehaviour {
     {
         return towerDamage;
     }
-
-
-    public void fire()
-    {
-/**This is a temporary position configuration for the prototype only
-*   this will produce awkward graphics since the projectile will be launched from the same coordinate as the tower.
-**/
-        p_shootPosition.position = transform.position; 
-        GameObject projectileShot = (GameObject)Instantiate(p_projectilePrefab, p_shootPosition);
-        projectile projectile = projectileShot.GetComponent<projectile>();
-
-        if(projectile != null)
-        {
-           // projectile.trace(currentTarget.transform);
-        }
-
-    }
-
 }

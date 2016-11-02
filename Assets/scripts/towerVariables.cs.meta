@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: 001c122e9482b9a45bf35097104663fc
-timeCreated: 1477780872
+timeCreated: 1478043512
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_target: {instanceID: 0}
+  - projectile: {fileID: 1000013445551568, guid: 1e286b3ccd7e009459594bfdf72aba34,
+      type: 2}
+  - shootPosition: {fileID: 4000012233255600, guid: af17e9d4960044048b1c0f373718c867,
+      type: 2}
+  - rotatingPiece: {fileID: 4000012233255600, guid: af17e9d4960044048b1c0f373718c867,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

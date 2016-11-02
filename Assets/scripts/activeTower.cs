@@ -98,7 +98,7 @@ namespace Assets.scripts
 
             if(projectile != null)
             {
-                projectile.trace(currentTarget.transform);
+                //projectile.trace(currentTarget.transform);
             }
         }
 

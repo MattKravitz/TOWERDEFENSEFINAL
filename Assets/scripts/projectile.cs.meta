@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 1df97c819d24df24891644d59bcd3d06
-timeCreated: 1477927455
+timeCreated: 1478042601
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ballisticsEffect: {fileID: 1000010692228666, guid: 530b3810edbcee544929f7dc01193fb6,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
