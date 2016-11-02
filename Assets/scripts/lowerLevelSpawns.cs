@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
 public class lowerLevelSpawns : MonoBehaviour {
 
     public static Transform[] points;
@@ -20,6 +23,9 @@ public class lowerLevelSpawns : MonoBehaviour {
     private int pickDir = 0;
     private int meow = 0;
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start()
     {   
         //create an array that stores all the spawnpoints(hidden green diamonds) for our gamepieces
@@ -108,6 +114,10 @@ public class lowerLevelSpawns : MonoBehaviour {
         //----------------------------------------------------------------------------------------------
 
     }
+    /// <summary>
+    /// Algorthms the specified current position.
+    /// </summary>
+    /// <param name="currentPosition">The current position.</param>
     void algorthm(int currentPosition)
     {
         
@@ -220,6 +230,10 @@ public class lowerLevelSpawns : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Checks the next move.
+    /// </summary>
+    /// <param name="currentPosition">The current position.</param>
     void checkNextMove(int currentPosition)
     {
 

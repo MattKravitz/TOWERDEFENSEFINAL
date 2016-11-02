@@ -2,6 +2,9 @@
 using System.Collections;
 
 
+/// <summary>
+/// 
+/// </summary>
 public class enemy: MonoBehaviour
 {
 
@@ -12,6 +15,9 @@ public class enemy: MonoBehaviour
     public int health = 0;
     private int moneyValue = 0;
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start()
     {
         //this is just the basic way of how im going to give every enemy its attributes
@@ -40,6 +46,9 @@ public class enemy: MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.green;
         }
     }
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     void Update()
     {
         //This code to traverse through wavepoints was found in a video on youtube by Brackeys-------------------------------
@@ -54,6 +63,9 @@ public class enemy: MonoBehaviour
         //-------------------------------------------------------------------------------------------------------------------
 
     }
+    /// <summary>
+    /// Gets the next waypoint.
+    /// </summary>
     void GetNextWaypoint()
     {
         //The basic if statement to destroy the gameobject and the wavepoint incrementation was found in a video on youtube by Brackeys-------------------------------
@@ -68,26 +80,50 @@ public class enemy: MonoBehaviour
         //------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
     //our getters and setters
+    /// <summary>
+    /// Gets the health.
+    /// </summary>
+    /// <returns></returns>
     public int getHealth()
     {
         return health;
     }
+    /// <summary>
+    /// Sets the health.
+    /// </summary>
+    /// <param name="h">The h.</param>
     public void setHealth(int h)
     {
         health = h;
     }
+    /// <summary>
+    /// Gets the money value.
+    /// </summary>
+    /// <returns></returns>
     public int getMoneyValue()
     {
         return moneyValue;
     }
+    /// <summary>
+    /// Sets the money value.
+    /// </summary>
+    /// <param name="m">The m.</param>
     public void setMoneyValue(int m)
     {
         moneyValue = m;
     }
+    /// <summary>
+    /// Gets the speed.
+    /// </summary>
+    /// <returns></returns>
     public float getSpeed()
     {
         return speed;
     }
+    /// <summary>
+    /// Sets the speed.
+    /// </summary>
+    /// <param name="s">The s.</param>
     public void setSpeed(int s)
     {
         speed = s;

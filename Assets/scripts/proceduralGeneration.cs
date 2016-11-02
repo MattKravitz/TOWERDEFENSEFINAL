@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// 
+/// </summary>
 public class proceduralGeneration : MonoBehaviour {
 
     public static Transform[] points;
@@ -27,6 +30,9 @@ public class proceduralGeneration : MonoBehaviour {
     private int meow = 0;
     private int incrementor = 0;
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start()
     {
         //create an array that stores all the spawnpoints(hidden green diamonds) for our gamepieces
@@ -99,6 +105,9 @@ public class proceduralGeneration : MonoBehaviour {
         
     }
 
+    /// <summary>
+    /// Algorithms this instance.
+    /// </summary>
     void algorithm()
     {
         //meow means you got to the end
@@ -125,7 +134,10 @@ public class proceduralGeneration : MonoBehaviour {
         }
 
     }
-    
+
+    /// <summary>
+    /// Moves the right.
+    /// </summary>
     void moveRight()//this is all the code for moving right in the algoithm
     {
         rand = 0;
@@ -151,6 +163,9 @@ public class proceduralGeneration : MonoBehaviour {
             }
         }
     }
+    /// <summary>
+    /// Moves the left.
+    /// </summary>
     void moveLeft()//all the code for moving left in the algorithm
     {
         rand = 0;
@@ -175,6 +190,10 @@ public class proceduralGeneration : MonoBehaviour {
         }
         
     }
+    /// <summary>
+    /// Adds the waypoint.
+    /// </summary>
+    /// <param name="currentPosition">The current position.</param>
     void addWaypoint(int currentPosition)//this how we add a waypoint to the map that the enemies follow
     {
         
@@ -182,6 +201,10 @@ public class proceduralGeneration : MonoBehaviour {
         myWaypoints.Add(this.waypoint);
         myWaypointsPositions.Add(redpoints[currentPosition].position);
     }
+    /// <summary>
+    /// Spawns the tower space.
+    /// </summary>
+    /// <param name="i">The i.</param>
     void spawnTowerSpace(int i)//this is how we get the different height terrain tiles on the mao
     {
         int rand2 = Random.Range(1, 11);

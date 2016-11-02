@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 
+/// <summary>
+/// 
+/// </summary>
 public class waveSpawner : MonoBehaviour {
 
     public Transform enemyPrefab;
@@ -16,12 +19,18 @@ public class waveSpawner : MonoBehaviour {
     private int randCountdown;
     public static bool start;
 
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start()
     {
         randCountdown = Random.Range(1, 5);
         start = false;
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     void Update()
     {
 
@@ -37,8 +46,11 @@ public class waveSpawner : MonoBehaviour {
             countdown -= Time.deltaTime;//decrement the countdown by timepassed
         }
     }
-   
-    
+
+
+    /// <summary>
+    /// Sets the start.
+    /// </summary>
     public static void setStart()
     {
         start = true;//if the spawn has been clicked we set this to true

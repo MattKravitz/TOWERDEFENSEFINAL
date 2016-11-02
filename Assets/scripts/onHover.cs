@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
 public class onHover : MonoBehaviour {
     
     private Vector3 initialPosition;
@@ -10,6 +13,9 @@ public class onHover : MonoBehaviour {
     private int j = 0;
 
     // Use this for initialization
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start () {
         
         initialPosition = this.transform.position;
@@ -26,7 +32,10 @@ public class onHover : MonoBehaviour {
         //----------------------------------------------------------------------------------------
 
     }
-	
+
+    /// <summary>
+    /// Called when [mouse over].
+    /// </summary>
     void OnMouseOver()
     {
         //if there isnt a tower at this position, then exectute this onmousedown
@@ -44,6 +53,9 @@ public class onHover : MonoBehaviour {
             }
         }
     }
+    /// <summary>
+    /// Called when [mouse exit].
+    /// </summary>
     void OnMouseExit()
     {
         this.transform.position = initialPosition;

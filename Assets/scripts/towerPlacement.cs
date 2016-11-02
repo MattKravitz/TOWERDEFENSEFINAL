@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
 public class towerPlacement : MonoBehaviour {
 
     private Vector3 placement;
@@ -11,6 +14,9 @@ public class towerPlacement : MonoBehaviour {
     public static int[] towerCheck = new int[256];
 
     // Use this for initialization
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start () {
 
 	    //0s mean thereis not a tower spawned here, 1 means there is
@@ -34,9 +40,12 @@ public class towerPlacement : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    void Update () {
 	
         
 
@@ -44,6 +53,9 @@ public class towerPlacement : MonoBehaviour {
 	}
 
 
+    /// <summary>
+    /// Called when [mouse down].
+    /// </summary>
     void OnMouseDown()
     {
 
