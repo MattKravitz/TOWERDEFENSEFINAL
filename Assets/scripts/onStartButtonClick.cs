@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class onStartButtonClick : MonoBehaviour {
+public class onStartButtonClick : MonoBehaviour
+{
+    public waveSpawner waveSpawner
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
 
-	// Use this for initialization
-	void Start () {
+        set
+        {
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
        
 	}
 	

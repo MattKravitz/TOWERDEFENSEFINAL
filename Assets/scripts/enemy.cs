@@ -2,7 +2,8 @@
 
 
 
-public class enemy : MonoBehaviour {
+public class enemy
+{
 
     private float speed = 2f;
     private Vector3 target;
@@ -10,9 +11,30 @@ public class enemy : MonoBehaviour {
 
     public int health = 0;
     private int moneyValue = 0;
-    
- 
 
+    public proceduralGeneration proceduralGeneration
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public waveSpawner waveSpawner
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
 
     void Start()
     {
@@ -20,8 +42,8 @@ public class enemy : MonoBehaviour {
         target = proceduralGeneration.myWaypointsPositions[0];
         speed = Random.Range(1, 5);
         this.tag = "enemy";
-        
-        if(speed == 1)
+
+        if (speed == 1)
         {
             health = 5;
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
@@ -29,7 +51,7 @@ public class enemy : MonoBehaviour {
         if (speed == 2)
         {
             health = 4;
-            
+
         }
         if (speed == 3)
         {
@@ -43,15 +65,15 @@ public class enemy : MonoBehaviour {
         }
     }
     void Update()
-    {   
+    {
         //This code to traverse through wavepoints was found in a video on youtube by Brackeys-------------------------------
         Vector3 dir = target - this.transform.position;
-       
-        this.transform.Translate(dir.normalized * speed * .5f * Time.deltaTime , Space.World );
-        if(Vector3.Distance(this.transform.position, target) <= .2f)
+
+        this.transform.Translate(dir.normalized * speed * .5f * Time.deltaTime, Space.World);
+        if (Vector3.Distance(this.transform.position, target) <= .2f)
         {
             GetNextWaypoint();
-            
+
         }
         //-------------------------------------------------------------------------------------------------------------------
 
@@ -66,7 +88,7 @@ public class enemy : MonoBehaviour {
         }
         wavepointIndex++;
         target = proceduralGeneration.myWaypointsPositions[wavepointIndex];
-       
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
     //our getters and setters

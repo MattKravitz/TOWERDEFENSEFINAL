@@ -10,6 +10,30 @@ public class towerPlacement : MonoBehaviour {
     public Transform stand;
     public static int[] towerCheck = new int[256];
 
+    public proceduralGeneration proceduralGeneration
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public Assets.scripts.activeTower activeTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     // Use this for initialization
     void Start () {
 

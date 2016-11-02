@@ -8,9 +8,21 @@ public class onHover : MonoBehaviour {
     private Vector3 dir;
     private Vector3 dir2;
     private int j = 0;
-    
-	// Use this for initialization
-	void Start () {
+
+    public proceduralGeneration proceduralGeneration
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         
         initialPosition = this.transform.position;
         endPosition = this.transform.position + Vector3.up * .5f;

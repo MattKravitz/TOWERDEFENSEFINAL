@@ -16,6 +16,18 @@ public class waveSpawner : MonoBehaviour {
     private int randCountdown;
     public static bool start;
 
+    public proceduralGeneration proceduralGeneration
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     void Start()
     {
         randCountdown = Random.Range(1, 5);

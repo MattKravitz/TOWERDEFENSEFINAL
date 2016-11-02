@@ -17,6 +17,19 @@ namespace Assets.scripts
         private SphereCollider attackArea;
 
         int count;
+
+        public proceduralGeneration proceduralGeneration
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// initialize the tower
         /// call function to make the attack area

@@ -6,11 +6,23 @@ public class ActiveTowerRotate : MonoBehaviour {
     public Transform body; //used to interact with the player-controlled tower
     public Transform bullet; //used to generate projectiles from the bullet prefab
     private float turn; //used to control how fast it's rotating
-	
+
+    public proceduralGeneration proceduralGeneration
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
-	void Update () {
+    void Update () {
 
         //if the user presses the w key, create a bullet with the same rotation as the tower
         if (Input.GetKeyDown(KeyCode.W)) 
