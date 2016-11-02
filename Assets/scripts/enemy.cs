@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 
-
-public class enemy
+public class enemy: MonoBehaviour
 {
 
     private float speed = 2f;
@@ -11,30 +11,6 @@ public class enemy
 
     public int health = 0;
     private int moneyValue = 0;
-
-    public proceduralGeneration proceduralGeneration
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
-
-    public waveSpawner waveSpawner
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
 
     void Start()
     {

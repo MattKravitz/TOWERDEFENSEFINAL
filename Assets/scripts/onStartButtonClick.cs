@@ -3,17 +3,6 @@ using System.Collections;
 
 public class onStartButtonClick : MonoBehaviour
 {
-    public waveSpawner waveSpawner
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
 
     // Use this for initialization
     void Start () {

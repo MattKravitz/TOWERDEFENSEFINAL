@@ -10,33 +10,23 @@
   <Class Name="BulletBehavior">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAQAAAAAACAAAAAAAAAAAAAAABAAAwAAABAAAIAgAAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAABAAAwAAABAAAIAAAAA=</HashCode>
       <FileName>Assets\BulletBehavior.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ActiveTowerRotate" />
-      <Property Name="activeTower" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ActiveTowerRotate">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIAAAAAAAAIAAAAAAAAAAQAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAIAAAAAAAAAAQAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Assets\ActiveTowerRotate.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="waveSpawner">
     <Position X="16.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>UAQAAIAAACAAABAgAAAAAAAQAAAAAgAAIAABAIAEAAA=</HashCode>
+      <HashCode>UAQAAAAAACAAABAgAAAAAAAQAAAAAgAAIAABAIAEAAA=</HashCode>
       <FileName>Assets\scripts\waveSpawner.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="towerVariables" Collapsed="true">
     <Position X="13" Y="8.5" Width="1.5" />
@@ -47,24 +37,10 @@
   </Class>
   <Class Name="towerPlacement">
     <Position X="3" Y="6.25" Width="1.5" />
-    <AssociationLine Name="activeTower" Type="Assets.scripts.activeTower" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3" Y="7.765" />
-        <Point X="2.625" Y="7.765" />
-        <Point X="2.625" Y="3.84" />
-        <Point X="2.206" Y="3.84" />
-        <Point X="2.206" Y="3.875" />
-        <Point X="2" Y="3.875" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAUQAIAAACACAAAAAAAAAAAAAAAIAAAAIgEAAAAAAAA=</HashCode>
+      <HashCode>AAUQAAAAACACAAAAAAAAAAAAAAAIAAAAIgEAAAAAAAA=</HashCode>
       <FileName>Assets\scripts\towerPlacement.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-      <Property Name="activeTower" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="sun">
     <Position X="16.75" Y="3.75" Width="1.5" />
@@ -83,22 +59,16 @@
   <Class Name="onStartButtonClick">
     <Position X="11.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACQAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Assets\scripts\onStartButtonClick.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="waveSpawner" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="onHover">
     <Position X="6" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AFAAAIAAACAAgAAAAAAAAAAAEAAAAAAAAAEAAAAQAAA=</HashCode>
+      <HashCode>AFAAAAAAACAAgAAAAAAAAAAAEAAAAAAAAAEAAAAQAAA=</HashCode>
       <FileName>Assets\scripts\onHover.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="lowerLevelSpawns" Collapsed="true">
     <Position X="14.75" Y="8.5" Width="1.5" />
@@ -116,32 +86,17 @@
   </Class>
   <Class Name="enemy">
     <Position X="12.75" Y="1.25" Width="1.5" />
-    <AssociationLine Name="waveSpawner" Type="waveSpawner" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="14.25" Y="1.812" />
-        <Point X="14.625" Y="1.812" />
-        <Point X="14.625" Y="5.812" />
-        <Point X="16.75" Y="5.812" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ACQAAJBAACAAAAAAIAAAAAAAAAAQAQADMAABAAAAAAg=</HashCode>
+      <HashCode>AAQAABBAACAAAAAAIAAAAAAAAAAQAQADMAABAAAAAAg=</HashCode>
       <FileName>Assets\scripts\enemy.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-      <Property Name="waveSpawner" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Assets.scripts.activeTower">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAGoAAACAAAAAABEAAACAAAhAQCICAQQAAAAAAQAA=</HashCode>
+      <HashCode>AAQAGgAAACAAAAAABEAAACAAAhAQCICAQQAAAAAAQAA=</HashCode>
       <FileName>Assets\scripts\activeTower.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="proceduralGeneration" />
-    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

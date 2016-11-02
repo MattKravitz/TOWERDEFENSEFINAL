@@ -13,30 +13,6 @@ public class BulletBehavior : MonoBehaviour {
 
     private Vector3 translater; //used to translate the object
 
-    public ActiveTowerRotate ActiveTowerRotate
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
-
-    public Assets.scripts.activeTower activeTower
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
-
     /// <summary>
     /// Initialize the ratio between movement in x and z directions based on angle
     /// </summary>

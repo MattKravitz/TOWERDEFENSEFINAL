@@ -18,18 +18,6 @@ namespace Assets.scripts
 
         int count;
 
-        public proceduralGeneration proceduralGeneration
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         /// <summary>
         /// initialize the tower
         /// call function to make the attack area
