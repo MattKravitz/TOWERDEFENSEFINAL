@@ -1,0 +1,9 @@
+Works Cited:
+
+Unity Manual -- https://docs.unity3d.com/Manual/index.html
+
+Unity Scripting API Reference -- https://docs.unity3d.com/ScriptReference/index.html
+
+Kravitz, Matthew (2016). Procedural Spawn Map Generator [Computer Software]
+Lawrence, KS.
+	Unity Technologies (2016). Unity - Game Engine [Computer Software] http://unity3d.com/
