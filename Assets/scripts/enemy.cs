@@ -63,7 +63,7 @@ public class enemy: MonoBehaviour
 
         }
         //-------------------------------------------------------------------------------------------------------------------
-        checkThenDie();
+       
     }
     /// <summary>
     /// Gets the next waypoint.
@@ -131,13 +131,5 @@ public class enemy: MonoBehaviour
         speed = s;
     }
 
-    public void checkThenDie()
-    {
-        if(health <= 0 && gameObject != null)
-        {
-            Debug.Log("Enemy Self-Destructed from Damage");
-            Destroy(gameObject); ;
-           
-        }
-    }
+   
 }

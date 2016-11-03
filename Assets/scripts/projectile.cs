@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class projectile : MonoBehaviour {
 
     [Header("Projectile Attributes")]
     public int m_damage;
-    public float m_projectileSpeed = 40f;
+    public float m_projectileSpeed = 55f;
     public GameObject ballisticsEffect;
 
 
@@ -12,13 +15,20 @@ public class projectile : MonoBehaviour {
     private Transform m_target;
     private enemy m_targetEnemy;
 
-  public void setDamage(int dmgDealtByProj)
+    /// <summary>
+    /// Sets the damage.
+    /// </summary>
+    /// <param name="dmgDealtByProj">The DMG dealt by proj.</param>
+    public void setDamage(int dmgDealtByProj)
      {
         m_damage = dmgDealtByProj;
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    void Update ()
     {
         
 
@@ -41,15 +51,26 @@ public class projectile : MonoBehaviour {
 	}
 
     //function responsible for target following
+    /// <summary>
+    /// Traces the specified target.
+    /// </summary>
+    /// <param name="target">The target.</param>
+    /// <param name="targetEnemy">The target enemy.</param>
     public void trace(Transform target, enemy targetEnemy)
     {
         m_target = target;
         m_targetEnemy = targetEnemy;
         
     }
-    
 
-  bool checkCollision(float directionVectorMagnitude, float distancePerFrame)
+
+    /// <summary>
+    /// Checks the collision.
+    /// </summary>
+    /// <param name="directionVectorMagnitude">The direction vector magnitude.</param>
+    /// <param name="distancePerFrame">The distance per frame.</param>
+    /// <returns></returns>
+    bool checkCollision(float directionVectorMagnitude, float distancePerFrame)
     {
         if (directionVectorMagnitude <= distancePerFrame)
         {
@@ -61,7 +82,10 @@ public class projectile : MonoBehaviour {
         }
     }
 
-  void actionOnCollision()
+    /// <summary>
+    /// Actions the on collision.
+    /// </summary>
+    void actionOnCollision()
     {
         GameObject impactEffect = (GameObject)Instantiate(ballisticsEffect, transform.position, transform.rotation);
 
@@ -71,6 +95,9 @@ public class projectile : MonoBehaviour {
         return;
     }
 
+    /// <summary>
+    /// Actions the on collision with damage.
+    /// </summary>
     void actionOnCollisionWithDamage()
     {
         dealDamage();
@@ -81,11 +108,15 @@ public class projectile : MonoBehaviour {
 
         GameObject impactEffect = (GameObject)Instantiate(ballisticsEffect, transform.position, transform.rotation);
 
-        Destroy(impactEffect, .5f);
+        Destroy(impactEffect, 1f);
 
         return;
     }
 
+    /// <summary>
+    /// Sets the shot point.
+    /// </summary>
+    /// <param name="firePoint">The fire point.</param>
     public void setShotPoint(Transform firePoint)
     {
         m_shootLocation = firePoint;
@@ -97,6 +128,9 @@ public class projectile : MonoBehaviour {
     *
     *   }
 */
+    /// <summary>
+    /// Deals the damage.
+    /// </summary>
     void dealDamage()
     {
         int healthAfterDamage = m_targetEnemy.getHealth() - m_damage;
@@ -111,6 +145,10 @@ public class projectile : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Damages the is lethal.
+    /// </summary>
+    /// <returns></returns>
     bool damageIsLethal()
     {
         if((m_targetEnemy.getHealth() <= m_damage))
@@ -123,6 +161,10 @@ public class projectile : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Kills the enemy.
+    /// </summary>
+    /// <param name="targetToKill">The target to kill.</param>
     void killEnemy(enemy targetToKill)
     {
         Destroy(targetToKill.gameObject);

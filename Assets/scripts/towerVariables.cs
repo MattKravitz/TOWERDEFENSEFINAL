@@ -19,7 +19,7 @@ public class towerVariables : MonoBehaviour {
     [Header("Projectile/Shooting Setup")]
     public GameObject projectile;
     public Transform shootPosition;
-    public float shotCooldown = 3f;
+    public float shotCooldown = 1;
 
     [Header("Targeting Variables")]
     public string enemiesTag = "enemy";
