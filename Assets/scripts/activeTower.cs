@@ -15,7 +15,6 @@ namespace Assets.scripts
         private Vector3 targetPosition; //position of the primary target
         private Vector3 attackDirection; //a vector between the tower and its' target
         private SphereCollider attackArea;
-
         int count;
 
         /// <summary>

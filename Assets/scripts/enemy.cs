@@ -29,21 +29,24 @@ public class enemy: MonoBehaviour
         {
             health = 5;
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+            setMoneyValue(100);
         }
         if (speed == 2)
         {
             health = 4;
-
+            setMoneyValue(75);
         }
         if (speed == 3)
         {
             health = 3;
             gameObject.GetComponent<Renderer>().material.color = Color.black;
+            setMoneyValue(50);
         }
         if (speed == 4)
         {
             health = 2;
             gameObject.GetComponent<Renderer>().material.color = Color.green;
+            setMoneyValue(25);
         }
 
         
