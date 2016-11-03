@@ -3,7 +3,7 @@
 public class projectile : MonoBehaviour {
 
     [Header("Projectile Attributes")]
-    public float m_damage;
+    public int m_damage;
     public float m_projectileSpeed = 40f;
     public GameObject ballisticsEffect;
 
@@ -12,11 +12,9 @@ public class projectile : MonoBehaviour {
     private Transform m_target;
     private enemy m_targetEnemy;
 
-  public void initializeProjectile(float dmgDealtByProj, Transform shootPoint)
+  public void setDamage(int dmgDealtByProj)
      {
-       m_damage = dmgDealtByProj;
-       m_shootLocation = shootPoint;
-
+        m_damage = dmgDealtByProj;
     }
 
 	// Update is called once per frame
@@ -32,14 +30,14 @@ public class projectile : MonoBehaviour {
 
         Vector3 direction = m_target.position - transform.position;
         float distanceTraveled = m_projectileSpeed * Time.deltaTime;
-
-        if(checkCollision(direction.magnitude, distanceTraveled))
+        transform.Translate(direction.normalized * distanceTraveled, Space.World);
+        if (checkCollision(direction.magnitude, distanceTraveled))
         {
-            actionOnCollision();
-            return;
+            actionOnCollisionWithDamage();
+            
         }
 
-        transform.Translate(direction.normalized * distanceTraveled, Space.World);
+        
 	}
 
     //function responsible for target following
@@ -47,6 +45,7 @@ public class projectile : MonoBehaviour {
     {
         m_target = target;
         m_targetEnemy = targetEnemy;
+        
     }
     
 
@@ -68,7 +67,22 @@ public class projectile : MonoBehaviour {
 
         Destroy(impactEffect, 1f);
         Destroy(m_target.gameObject);
-        Debug.Log("Target Hit");
+        Debug.Log("Target Hit: One Shot");
+        return;
+    }
+
+    void actionOnCollisionWithDamage()
+    {
+        dealDamage();
+        Destroy(gameObject);
+        Debug.Log("Target Damaged");
+        Debug.Log("TargetHealth is now: ");
+        Debug.Log(m_targetEnemy.getHealth());
+
+        GameObject impactEffect = (GameObject)Instantiate(ballisticsEffect, transform.position, transform.rotation);
+
+        Destroy(impactEffect, .5f);
+
         return;
     }
 
@@ -76,16 +90,43 @@ public class projectile : MonoBehaviour {
     {
         m_shootLocation = firePoint;
     }
-/**
-*   Functions to Implement later
-*    void aoeDetection()
-*   {
-*
-*   }
-*
-*   void dealDamage(take enemy object here)
-*   {
-*   
-*   }
-**/
+    /**
+    *   Functions to Implement later
+    *    void aoeDetection()
+    *   {
+    *
+    *   }
+*/
+    void dealDamage()
+    {
+        int healthAfterDamage = m_targetEnemy.getHealth() - m_damage;
+        if(damageIsLethal())
+        {
+            killEnemy(m_targetEnemy);
+            //Debug.Log("Target should self-destruct on next update");
+        }
+        else
+        {
+            m_targetEnemy.setHealth(healthAfterDamage);
+        }
+    }
+
+    bool damageIsLethal()
+    {
+        if((m_targetEnemy.getHealth() <= m_damage))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void killEnemy(enemy targetToKill)
+    {
+        Destroy(targetToKill.gameObject);
+        Debug.Log("Enemy killed by killEnemy Function");
+    }
+
 }

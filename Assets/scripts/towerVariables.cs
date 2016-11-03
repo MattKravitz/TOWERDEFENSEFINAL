@@ -8,9 +8,9 @@ public class towerVariables : MonoBehaviour {
     public int enemyMV; //enemyMoneyValue
 
     [Header("Tower Attributes")]
-    public float towerShotSpeed;
-    public float towerDamage = 0;
-    public float towerRange = 1f;
+    public float towerShotSpeed =  2f;
+    public int towerDamage = 1;
+    public float towerRange = 3f;
     public Transform m_target;
     private enemy targetedEnemy;
 
@@ -19,7 +19,7 @@ public class towerVariables : MonoBehaviour {
     [Header("Projectile/Shooting Setup")]
     public GameObject projectile;
     public Transform shootPosition;
-    public float shotCooldown = 0f;
+    public float shotCooldown = 3f;
 
     [Header("Targeting Variables")]
     public string enemiesTag = "enemy";
@@ -29,7 +29,7 @@ public class towerVariables : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        InvokeRepeating("refreshTarget", 0f, .5f);
+        InvokeRepeating("refreshTarget", 2f, .5f);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +37,7 @@ public class towerVariables : MonoBehaviour {
     {
 	    if(m_target == null)
         {
-            return; //empty return statement to kill update function if no target exists.
+            //return; //empty return statement to kill update function if no target exists.
         }
         else
         {
@@ -59,16 +59,16 @@ public class towerVariables : MonoBehaviour {
         /**This is a temporary position configuration for the prototype only
         *   this will produce awkward graphics since the projectile will be launched from the same coordinate as the tower.
         **/
-        Debug.Log("Firing");
+        
         GameObject projectileShot = (GameObject)Instantiate(projectile, shootPosition.position, shootPosition.rotation);
         projectile projectile1 = projectileShot.GetComponent<projectile>();
 
-        //projectile1.initializeProjectile(towerDamage, shootPosition);
+        projectile1.setDamage(towerDamage);
 
         if (projectile != null)
         {
-          
-           projectile1.trace(m_target.transform, targetedEnemy);
+            Debug.Log("Firing");
+            projectile1.trace(m_target.transform, targetedEnemy);
         }
 
     }
@@ -79,7 +79,7 @@ public class towerVariables : MonoBehaviour {
    // }
    void acquireTarget()
     {
-        Debug.Log("HAS TARGET");
+        //Debug.Log("HAS TARGET");
         Vector3 direction = m_target.position - transform.position;
         Quaternion towerRotation = Quaternion.LookRotation(direction);
         Vector3 convertedRotation = Quaternion.Lerp(rotatingPiece.rotation, towerRotation, Time.deltaTime * rotationVelocity).eulerAngles;
@@ -109,6 +109,7 @@ public class towerVariables : MonoBehaviour {
             Debug.Log("Target Selected");
             m_target = closestEnemy.transform;
             targetedEnemy = closestEnemy.GetComponent<enemy>();
+            //targetedEnemy.setHealth(5);
         }
         else
         {
@@ -176,13 +177,13 @@ public class towerVariables : MonoBehaviour {
         return towerRange;
     }
 
-    public void setTowerDamage(float damage)
+    public void setTowerDamage(int damage)
     {
         towerDamage = damage;
 
     }
 
-    public float getTowerDamage()
+    public int getTowerDamage()
     {
         return towerDamage;
     }

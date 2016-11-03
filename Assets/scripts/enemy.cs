@@ -12,7 +12,7 @@ public class enemy: MonoBehaviour
     private Vector3 target;
     private int wavepointIndex = 0;
 
-    public int health = 0;
+    public int health = 5;
     private int moneyValue = 0;
 
     /// <summary>
@@ -45,6 +45,8 @@ public class enemy: MonoBehaviour
             health = 2;
             gameObject.GetComponent<Renderer>().material.color = Color.green;
         }
+
+        
     }
     /// <summary>
     /// Updates this instance.
@@ -61,7 +63,7 @@ public class enemy: MonoBehaviour
 
         }
         //-------------------------------------------------------------------------------------------------------------------
-
+        checkThenDie();
     }
     /// <summary>
     /// Gets the next waypoint.
@@ -127,5 +129,15 @@ public class enemy: MonoBehaviour
     public void setSpeed(int s)
     {
         speed = s;
+    }
+
+    public void checkThenDie()
+    {
+        if(health <= 0 && gameObject != null)
+        {
+            Debug.Log("Enemy Self-Destructed from Damage");
+            Destroy(gameObject); ;
+           
+        }
     }
 }
