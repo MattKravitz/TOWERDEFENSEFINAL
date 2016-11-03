@@ -1,25 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.scripts;
 
 
 /// <summary>
 /// 
 /// </summary>
+
 public class enemy: MonoBehaviour
 {
 
     private float speed = 2f;
     private Vector3 target;
     private int wavepointIndex = 0;
-
+    private ActiveTowerRotate playerTower;
     public int health = 5;
     private int moneyValue = 0;
+    private int m_damage = 1;
 
     /// <summary>
     /// Starts this instance.
     /// </summary>
     void Start()
     {
+        playerTower = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>();
         //this is just the basic way of how im going to give every enemy its attributes
         target = proceduralGeneration.myWaypointsPositions[0];
         speed = Random.Range(1, 5);
@@ -27,24 +31,24 @@ public class enemy: MonoBehaviour
 
         if (speed == 1)
         {
-            health = 5;
+            health = 1000;
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
             setMoneyValue(100);
         }
         if (speed == 2)
         {
-            health = 4;
+            health = 1000;
             setMoneyValue(75);
         }
         if (speed == 3)
         {
-            health = 3;
+            health = 1000;
             gameObject.GetComponent<Renderer>().material.color = Color.black;
             setMoneyValue(50);
         }
         if (speed == 4)
         {
-            health = 2;
+            health = 1000;
             gameObject.GetComponent<Renderer>().material.color = Color.green;
             setMoneyValue(25);
         }
@@ -76,6 +80,7 @@ public class enemy: MonoBehaviour
         //The basic if statement to destroy the gameobject and the wavepoint incrementation was found in a video on youtube by Brackeys-------------------------------
         if (wavepointIndex >= proceduralGeneration.myWaypoints.Count - 1)
         {
+            playerTower.takeDamage(this);
             Destroy(this.gameObject);
             return;
         }
@@ -134,5 +139,13 @@ public class enemy: MonoBehaviour
         speed = s;
     }
 
-   
+   public void setDamage(int damage)
+    {
+        m_damage = damage;
+    }
+    
+    public int getDamage()
+    {
+        return m_damage;
+    }
 }

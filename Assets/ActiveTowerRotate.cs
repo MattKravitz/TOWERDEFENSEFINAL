@@ -6,7 +6,7 @@ public class ActiveTowerRotate : MonoBehaviour {
     public Transform body; //used to interact with the player-controlled tower
     public Transform bullet; //used to generate projectiles from the bullet prefab
     private float turn; //used to control how fast it's rotating
-
+    private int m_health = 100;
     /// <summary>
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
@@ -37,5 +37,23 @@ public class ActiveTowerRotate : MonoBehaviour {
         body.Rotate(0, turn, 0);
 
     }
-    
+    public void takeDamage(enemy enemyDealingDamage)
+    {
+
+        int damageTaken = enemyDealingDamage.getDamage();
+        int newHealth = m_health - damageTaken;
+
+        setHealth(newHealth);
+        Debug.Log("Health Set to");
+        Debug.Log(getHealth());
+    }
+    public void setHealth(int newHealth)
+    {
+        m_health = newHealth;
+    }
+
+    public int getHealth()
+    {
+        return m_health;
+    }
 }

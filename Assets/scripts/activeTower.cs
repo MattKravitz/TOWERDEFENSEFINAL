@@ -5,10 +5,12 @@ namespace Assets.scripts
 {
     public class activeTower : MonoBehaviour
     {
+
         public float shotSpeed = 1; //fire rate of the tower
         //TODO: add a projectile object that takes in the tower damage
         public float baseDamage = 1; //the base damage a tower deals 
         public float attackRadius = 5; //distance the tower can attack 
+        private int m_health = 100;//health of player tower
         private GameObject currentTarget; //the primary target of the tower
         private List<GameObject> targetList = new List<GameObject>(); //a list of enemies in the attack radius
         private Vector3 towerPosition; //position that the tower is located
@@ -94,5 +96,9 @@ namespace Assets.scripts
         {
             
         }
+
+
+
+        
     }
 }

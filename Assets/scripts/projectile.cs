@@ -7,7 +7,7 @@ public class projectile : MonoBehaviour {
 
     [Header("Projectile Attributes")]
     public int m_damage;
-    public float m_projectileSpeed = 55f;
+    public float m_projectileSpeed = 45f;
     public GameObject ballisticsEffect;
 
 
