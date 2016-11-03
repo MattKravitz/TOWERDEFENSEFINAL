@@ -11,7 +11,7 @@ public class projectile : MonoBehaviour {
     public GameObject ballisticsEffect;
 
 
-    private Transform m_shootLocation;
+   // private Transform m_shootLocation;
     private Transform m_target;
     private enemy m_targetEnemy;
 
@@ -117,10 +117,10 @@ public class projectile : MonoBehaviour {
     /// Sets the shot point.
     /// </summary>
     /// <param name="firePoint">The fire point.</param>
-    public void setShotPoint(Transform firePoint)
-    {
-        m_shootLocation = firePoint;
-    }
+  //  public void setShotPoint(Transform firePoint)
+   // {
+   //     m_shootLocation = firePoint;
+   // }
     /**
     *   Functions to Implement later
     *    void aoeDetection()

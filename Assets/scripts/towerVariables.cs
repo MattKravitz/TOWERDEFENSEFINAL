@@ -64,6 +64,7 @@ public class towerVariables : MonoBehaviour {
         projectile projectile1 = projectileShot.GetComponent<projectile>();
 
         projectile1.setDamage(towerDamage);
+        //projectile1.setShotPoint(shootPosition.position);
 
         if (projectile != null)
         {
@@ -80,7 +81,7 @@ public class towerVariables : MonoBehaviour {
    void acquireTarget()
     {
         //Debug.Log("HAS TARGET");
-        Vector3 direction = m_target.position - transform.position;
+        Vector3 direction = m_target.position - shootPosition.position;
         Quaternion towerRotation = Quaternion.LookRotation(direction);
         Vector3 convertedRotation = Quaternion.Lerp(rotatingPiece.rotation, towerRotation, Time.deltaTime * rotationVelocity).eulerAngles;
         rotatingPiece.rotation = Quaternion.Euler(0f, convertedRotation.y, 0f);
