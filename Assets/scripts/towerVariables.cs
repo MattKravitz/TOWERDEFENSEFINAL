@@ -10,7 +10,7 @@ public class towerVariables : MonoBehaviour {
     [Header("Tower Attributes")]
     public float towerShotSpeed;
     public float towerDamage = 0;
-    public float towerRange = 1f;
+    public float towerRange = 4f;
     public Transform m_target;
     private enemy targetedEnemy;
 
