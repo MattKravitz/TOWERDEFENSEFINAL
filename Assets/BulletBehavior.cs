@@ -5,7 +5,7 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 10; //the speed at which the object travels
+    private static float speed = 0; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
     private double x_multiplier;
@@ -28,7 +28,11 @@ public class BulletBehavior : MonoBehaviour {
     void Update () {
         
         //Deletes the bullet if it goes outside of the boundary
-        if  (
+        if(bullet.position.y < 2)
+        {
+            HitGround();
+        }
+        else if  (
             bullet.position.x > 10 
             ||
             bullet.position.x < -15 
@@ -48,5 +52,19 @@ public class BulletBehavior : MonoBehaviour {
             (Vector3.right * (float)(speed * x_multiplier * Time.deltaTime));
 
         bullet.Translate(translater);
+    }
+
+    private bool HitGround()
+    {
+        Destroy(bullet.gameObject);
+
+        //TODO: Detect all objects within radius and apply damage
+
+        return true;
+    }
+
+    public void setSpeed(float input)
+    {
+        speed = input;
     }
 }

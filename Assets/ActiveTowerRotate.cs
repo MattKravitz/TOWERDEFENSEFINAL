@@ -7,15 +7,28 @@ public class ActiveTowerRotate : MonoBehaviour {
     public Transform bullet; //used to generate projectiles from the bullet prefab
     private float turn; //used to control how fast it's rotating
     private int m_health = 100;
+    private float shot_speed;
     /// <summary>
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
     void Update () {
 
         //if the user presses the w key, create a bullet with the same rotation as the tower
-        if (Input.GetKeyDown(KeyCode.W)) 
+        if (Input.GetKeyDown(KeyCode.Space)) //press
         {
-            Instantiate(bullet, body.position, body.rotation);
+            shot_speed = 1;
+        }
+        else if (Input.GetKey(KeyCode.Space)) //hold
+        {
+            if(shot_speed < 24)
+            {
+                shot_speed+=1;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Space)) //release
+        {
+            Instantiate(bullet, body.position + Vector3.up, body.rotation);
+            bullet.GetComponent<BulletBehavior>().setSpeed(shot_speed);
         }
 
         //if the d key is pressed, rotate right
