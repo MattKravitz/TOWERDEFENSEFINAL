@@ -28,7 +28,7 @@ public class BulletBehavior : MonoBehaviour {
     void Update () {
         
         //Deletes the bullet if it goes outside of the boundary
-        if(bullet.position.y < 2)
+        if(bullet.position.y < 3)
         {
             HitGround();
         }
@@ -45,10 +45,15 @@ public class BulletBehavior : MonoBehaviour {
             Destroy(bullet.gameObject);
         }
 
+        
+    }
+
+    public void FixedUpdate()
+    {
         //used to move the bullet along the angle based on speed variable
-        translater = 
+        translater =
             (Vector3.forward * (float)(speed * z_multiplier * Time.deltaTime))
-            + 
+            +
             (Vector3.right * (float)(speed * x_multiplier * Time.deltaTime));
 
         bullet.Translate(translater);
@@ -56,6 +61,11 @@ public class BulletBehavior : MonoBehaviour {
 
     private bool HitGround()
     {
+        int layerMask = (1 << 8);
+        Collider[] hitColliders = Physics.OverlapSphere(bullet.transform.position, 2,layerMask);
+
+        Debug.Log(hitColliders.Length);
+
         Destroy(bullet.gameObject);
 
         //TODO: Detect all objects within radius and apply damage
