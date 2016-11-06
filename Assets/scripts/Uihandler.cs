@@ -8,6 +8,7 @@ public class Uihandler : MonoBehaviour {
     private int counter2;
     private int moneyVal;
     private int healthVal;
+    private int initialHealth;
 
     public Text time;
     public Text money;
@@ -16,7 +17,7 @@ public class Uihandler : MonoBehaviour {
 	void Start () {
         counter = Time.deltaTime;
         moneyVal = playerWallet.getPlayerMoneyTotal();
-        healthVal = ActiveTowerRotate.getHealth();
+        initialHealth = ActiveTowerRotate.getHealth();
         
 	}
 	
@@ -29,6 +30,6 @@ public class Uihandler : MonoBehaviour {
 
         time.text = counter2.ToString();
         money.text = string.Concat("$", moneyVal.ToString());
-        health.text = healthVal.ToString();
+        health.text = string.Concat(healthVal.ToString(), "/" , initialHealth.ToString());
 	}
 }
