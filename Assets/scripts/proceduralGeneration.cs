@@ -17,6 +17,7 @@ public class proceduralGeneration : MonoBehaviour {
     public Transform spawnPoint;
     public Transform enemyStart;
     public Transform tower;
+    public Transform towerHead;
     public Transform secondLevelSpawnPoint;
     public Transform enemyPath;
     public Transform waypoint;
@@ -66,7 +67,8 @@ public class proceduralGeneration : MonoBehaviour {
         //set start and end point
 
         Instantiate(enemyStart, points[17].position, points[17].rotation);
-        Instantiate(tower, points[238].position + 2 * Vector3.up, points[238].rotation);
+        Instantiate(tower, points[238].position+Vector3.up, points[238].rotation);
+        Instantiate(towerHead, points[238].position+3*Vector3.up, points[238].rotation);
 
         //----------------------------------------------------------------------------------------------
 

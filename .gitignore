@@ -48,6 +48,7 @@ Temporary Items
 
 
 # files to ignore for our project
+Library/metadata/00/
 Library/metadata/
 Temp/
 Library/ScriptAssemblies/

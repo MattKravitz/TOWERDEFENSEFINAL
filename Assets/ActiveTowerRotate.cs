@@ -12,7 +12,7 @@ public class ActiveTowerRotate : MonoBehaviour {
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
     void Update () {
-
+        /*
         //if the user presses the w key, create a bullet with the same rotation as the tower
         if (Input.GetKeyDown(KeyCode.Space)) //press
         {
@@ -48,6 +48,7 @@ public class ActiveTowerRotate : MonoBehaviour {
         }
         //rotate by the turn factor
         body.Rotate(0, turn, 0);
+        */
 
     }
     public void takeDamage(enemy enemyDealingDamage)
