@@ -25,14 +25,13 @@ public class PlayerShoot : MonoBehaviour
         //if the a key is pressed, rotate left
         else if (Input.GetKey(KeyCode.A) && !(Input.GetKey(KeyCode.D)))
         {
-
             turn = -5;
         }
-        else if (Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.S)))
+        else if (Input.GetKey(KeyCode.S) && !(Input.GetKey(KeyCode.W)))
         {
             vertical = -5;
         }
-        else if (Input.GetKey(KeyCode.S) && !(Input.GetKey(KeyCode.W)))
+        else if (Input.GetKey(KeyCode.W) && !(Input.GetKey(KeyCode.S)))
         {
             vertical = 5;
         }
@@ -44,20 +43,23 @@ public class PlayerShoot : MonoBehaviour
         }
         //rotate by the turn factor
         turret.RotateAround(turret.position,Vector3.up, turn);
+        turret.Rotate(new Vector3(0, 0, vertical));
 
-        float x = Mathf.Sin(Mathf.Deg2Rad*turret.eulerAngles.y);
-        float z = Mathf.Cos(Mathf.Deg2Rad*turret.eulerAngles.y);
-        Vector3 rotationAxis = new Vector3(x, 0, z);
+        if(turret.eulerAngles.z > 90 && turret.eulerAngles.z < 120)
+        {
+            turret.Rotate(new Vector3(0, 0, 90 - turret.eulerAngles.z));
+        }
+        else if(turret.eulerAngles.z < 300 && turret.eulerAngles.z > 120)
+        {
+            turret.Rotate(new Vector3(0, 0, 300 - turret.eulerAngles.z));
+        }
 
-        turret.RotateAround(turret.position, rotationAxis, vertical);
-
-        //if the user presses the w key, create a bullet with the same rotation as the tower
+        //if the user presses the space key, create a bullet with the same rotation as the tower
         if (Input.GetKeyDown(KeyCode.Space)) //press
         {
             Instantiate(bullet, turret.position, turret.rotation);
-
         }
-
+        Debug.Log(turret.eulerAngles.z);
     }
     public void takeDamage(enemy enemyDealingDamage)
     {
