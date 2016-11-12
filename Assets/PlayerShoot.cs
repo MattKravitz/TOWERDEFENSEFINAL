@@ -5,7 +5,9 @@ public class PlayerShoot : MonoBehaviour
 {
 
     public Transform turret; //used to interact with the player-controlled tower
-    public Transform bullet; //used to generate projectiles from the bullet prefab
+    public GameObject bullet; //used to generate projectiles from the bullet prefab
+    public Rigidbody bulletRigidbody;
+
     private float turn; //used to control how fast it's rotating
     private float vertical;
 
@@ -58,18 +60,17 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) //press
         {
             Instantiate(bullet, turret.position, turret.rotation);
+            //bulletRigidbody = bullet.GetComponent<Rigidbody>();
+            //bulletRigidbody.AddForce(Vector3.up);
         }
-        Debug.Log(turret.eulerAngles.z);
     }
     public void takeDamage(enemy enemyDealingDamage)
-    {
-
+    { 
         int damageTaken = enemyDealingDamage.getDamage();
         int newHealth = m_health - damageTaken;
 
         setHealth(newHealth);
-        Debug.Log("Health Set to");
-        Debug.Log(getHealth());
+        Debug.Log("Health Set to " + getHealth());
     }
     public void setHealth(int newHealth)
     {

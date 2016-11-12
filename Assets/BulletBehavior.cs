@@ -5,11 +5,11 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 1f; //the speed at which the object travels
+    private static float speed = 2.4f; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
-    private double x_multiplier;
-    private double z_multiplier;
+    private float x_multiplier;
+    private float z_multiplier;
     private float startTime;
     private Vector3 translater; //used to translate the object
     private Vector3 original;
@@ -19,8 +19,8 @@ public class BulletBehavior : MonoBehaviour {
     /// </summary>
     void Start () {
 
-        x_multiplier = Mathf.Cos(Mathf.Deg2Rad * bullet.rotation.y);
-        z_multiplier = - Mathf.Sin(Mathf.Deg2Rad * bullet.rotation.y);
+        x_multiplier = Mathf.Cos(Mathf.Deg2Rad * bullet.eulerAngles.y);
+        z_multiplier = - Mathf.Sin(Mathf.Deg2Rad * bullet.eulerAngles.y);
 
         Vector3 original = bullet.position;
 
@@ -56,21 +56,22 @@ public class BulletBehavior : MonoBehaviour {
 
     public void FixedUpdate()
     {
-
+        
         //used to move the bullet along the angle based on speed variable
         float timeIncrement = Time.time - startTime;
-        //float v_vertical = Mathf.Sin(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
-        //float v_horizontal = Mathf.Cos(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
+        float v_vertical = Mathf.Sin(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
+        float v_horizontal = Mathf.Cos(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
+   
+        //Debug.Log("horizontal component: "+v_horizontal);
+        //Debug.Log("vertical component: " + v_vertical);
 
-        //float v_horizontal = speed * Mathf.Cos(bullet.eulerAngles.x);
         translater =
-            (Vector3.forward * speed * (float)(z_multiplier * timeIncrement))
-            +
-            (Vector3.right * speed * (float)(x_multiplier * timeIncrement)
-            +
-            (Vector3.up * ( (speed * timeIncrement) + (-4.9f * timeIncrement * timeIncrement) ) ));
+            new Vector3(
+               (v_horizontal * x_multiplier * timeIncrement)
+               ,((v_vertical * timeIncrement) + (-4.9f * timeIncrement * timeIncrement))
+               ,(v_horizontal * z_multiplier * timeIncrement) );
 
-        bullet.Translate(translater);
+        bullet.Translate(translater, Space.World);
         
     }
 
@@ -83,7 +84,7 @@ public class BulletBehavior : MonoBehaviour {
 
         Destroy(bullet.gameObject);
 
-        //TODO: Detect all objects within radius and apply damage
+        //TODO: apply damage
 
         return true;
     }
