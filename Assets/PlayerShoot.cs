@@ -6,7 +6,6 @@ public class PlayerShoot : MonoBehaviour
 
     public Transform turret; //used to interact with the player-controlled tower
     public GameObject bullet; //used to generate projectiles from the bullet prefab
-    public Rigidbody bulletRigidbody;
 
     private float turn; //used to control how fast it's rotating
     private float vertical;
@@ -14,6 +13,7 @@ public class PlayerShoot : MonoBehaviour
     private static int m_health = 100;
     private float shot_speed;
 
+    private float delayTime = 0;
     /// <summary>
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
@@ -59,9 +59,11 @@ public class PlayerShoot : MonoBehaviour
         //if the user presses the space key, create a bullet with the same rotation as the tower
         if (Input.GetKeyDown(KeyCode.Space)) //press
         {
-            Instantiate(bullet, turret.position, turret.rotation);
-            //bulletRigidbody = bullet.GetComponent<Rigidbody>();
-            //bulletRigidbody.AddForce(Vector3.up);
+            if(Time.time > delayTime)
+            {
+                Instantiate(bullet, turret.position, turret.rotation);
+                delayTime = Time.time + 0.5f;
+            }
         }
     }
     public void takeDamage(enemy enemyDealingDamage)

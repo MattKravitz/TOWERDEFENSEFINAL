@@ -5,7 +5,7 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 2.4f; //the speed at which the object travels
+    private static float speed = 2.5f; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
     private float x_multiplier;
@@ -34,7 +34,7 @@ public class BulletBehavior : MonoBehaviour {
     void Update () {
         
         //Deletes the bullet if it goes outside of the boundary
-        if(bullet.position.y < 3)
+        if(bullet.position.y < 2)
         {
             HitGround();
         }
