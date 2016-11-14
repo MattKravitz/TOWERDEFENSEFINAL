@@ -20,7 +20,7 @@ public class waveSpawner : MonoBehaviour {
     public static bool start;
     private static int healthPool = 100; //the starting health pool
     private static int enemyHealthLeft;
-    private static int newEnemyHealth;
+    private static int currentWave = 1;
 
     /// <summary>
     /// Starts this instance.
@@ -43,7 +43,7 @@ public class waveSpawner : MonoBehaviour {
             {
                 GameObject placedObject = (GameObject)Instantiate(enemyPrefab, proceduralGeneration.points[17].position, proceduralGeneration.points[17].rotation);//spawn next enemy
                 enemy newEnemy = placedObject.GetComponent<enemy>();
-                enemyHealthLeft = enemyHealthLeft-newEnemy.getHealth();
+                enemyHealthLeft = enemyHealthLeft - newEnemy.getHealth();
                 randCountdown = Random.Range(1,7);//set rand number
                 countdown = randCountdown;//set the next time for spawn
                 i++;
@@ -69,8 +69,16 @@ public class waveSpawner : MonoBehaviour {
     private void endWave()
     {
         start = false;
-        healthPool = healthPool + 50;
-        //enemyHealthLeft = healthPool;
+        healthPool = healthPool + 50*currentWave;
+        currentWave++;
+    }
+    /// <summary>
+    /// Get the current wave
+    /// </summary>
+    /// <returns>currentWave</returns>
+    public int getWave()
+    {
+        return currentWave;
     }
 }
 

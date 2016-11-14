@@ -21,7 +21,7 @@ public class enemy: MonoBehaviour
     /// <summary>
     /// Starts this instance.
     /// </summary>
-    void Start()
+    void Awake()
     {
         playerTower = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>();
         //this is just the basic way of how im going to give every enemy its attributes
