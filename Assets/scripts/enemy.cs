@@ -14,7 +14,7 @@ public class enemy: MonoBehaviour
     private Vector3 target;
     private int wavepointIndex = 0;
     private ActiveTowerRotate playerTower;
-    public int health = 5;
+    private int health=10;
     private int moneyValue = 0;
     private int m_damage = 1;
 
@@ -31,28 +31,27 @@ public class enemy: MonoBehaviour
 
         if (speed == 1)
         {
-            health = 1000;
+            health = 100;
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
             setMoneyValue(100);
         }
         if (speed == 2)
         {
-            health = 1000;
+            health = 75;
             setMoneyValue(75);
         }
         if (speed == 3)
         {
-            health = 1000;
+            health = 50;
             gameObject.GetComponent<Renderer>().material.color = Color.black;
             setMoneyValue(50);
         }
         if (speed == 4)
         {
-            health = 1000;
+            health = 25;
             gameObject.GetComponent<Renderer>().material.color = Color.green;
             setMoneyValue(25);
         }
-
         
     }
     /// <summary>
