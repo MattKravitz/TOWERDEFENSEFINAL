@@ -21,6 +21,8 @@ public class waveSpawner : MonoBehaviour {
     private static int healthPool = 100; //the starting health pool
     private static int enemyHealthLeft;
     private static int currentWave = 1;
+    private static bool spawnWave = false;
+    private static int spawnWaveAmount;
 
     /// <summary>
     /// Starts this instance.
@@ -37,17 +39,29 @@ public class waveSpawner : MonoBehaviour {
     /// </summary>
     void Update()
     {
-
         if (start == true) {//if the enenmy spawn has been clicked
             if (countdown <= 0f || i==1)//when its ready to spawn next enemy
             {
-                GameObject placedObject = (GameObject)Instantiate(enemyPrefab, proceduralGeneration.points[17].position, proceduralGeneration.points[17].rotation);//spawn next enemy
-                enemy newEnemy = placedObject.GetComponent<enemy>();
-                enemyHealthLeft = enemyHealthLeft - newEnemy.getHealth();
+                spawnEnemy();
                 randCountdown = Random.Range(1,7);//set rand number
                 countdown = randCountdown;//set the next time for spawn
                 i++;
-                Debug.Log("Health pool left "+enemyHealthLeft);
+                //set multiple enemies to spawn in a row
+                if(randCountdown > 5 && healthPool>1000)
+                {
+                    spawnWave = true;
+                    spawnWaveAmount = Random.Range(5,11);
+                }
+            }
+            //spawn multiple enemies in a row
+            else if (spawnWave)
+            {
+                spawnEnemy();
+                spawnWaveAmount--;
+                if(spawnWaveAmount == 0)
+                {
+                    spawnWave = false;
+                }
             }
             if (enemyHealthLeft <= 0)
             {
@@ -79,6 +93,16 @@ public class waveSpawner : MonoBehaviour {
     public int getWave()
     {
         return currentWave;
+    }
+    /// <summary>
+    /// create a new enemy
+    /// </summary>
+    private void spawnEnemy()
+    {
+        GameObject placedObject = (GameObject)Instantiate(enemyPrefab, proceduralGeneration.points[17].position, proceduralGeneration.points[17].rotation);//spawn next enemy
+        enemy newEnemy = placedObject.GetComponent<enemy>();
+        enemyHealthLeft = enemyHealthLeft - newEnemy.getHealth();
+        Debug.Log("Health pool left " + enemyHealthLeft);
     }
 }
 
