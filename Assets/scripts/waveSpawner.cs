@@ -90,7 +90,7 @@ public class waveSpawner : MonoBehaviour {
     /// Get the current wave
     /// </summary>
     /// <returns>currentWave</returns>
-    public int getWave()
+    public static int getWave()
     {
         return currentWave;
     }
