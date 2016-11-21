@@ -119,6 +119,11 @@ public class enemy: MonoBehaviour
     /// </summary>
     void Update()
     {
+        if(this.health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
         //This code to traverse through wavepoints was found in a video on youtube by Brackeys-------------------------------
         Vector3 dir = target - this.transform.position;
 
@@ -206,5 +211,10 @@ public class enemy: MonoBehaviour
     public int getDamage()
     {
         return m_damage;
+    }
+
+    public void attackEnemy(int damage)
+    {
+        health = health - damage;
     }
 }

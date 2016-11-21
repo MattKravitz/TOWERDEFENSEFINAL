@@ -78,13 +78,16 @@ public class BulletBehavior : MonoBehaviour {
     private bool HitGround()
     {
         int layerMask = (1 << 8);
-        Collider[] hitColliders = Physics.OverlapSphere(bullet.transform.position, 2,layerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(bullet.transform.position, 3,layerMask);
 
-        Debug.Log(hitColliders.Length);
+        Debug.Log("Enemies hit: " + hitColliders.Length);
 
         Destroy(bullet.gameObject);
 
-        //TODO: apply damage
+        for(int i=0; i < hitColliders.Length; i++)
+        {
+            hitColliders[i].gameObject.GetComponent<enemy>().attackEnemy(20);
+        }
 
         return true;
     }
