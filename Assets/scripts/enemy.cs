@@ -49,7 +49,6 @@ public class enemy: MonoBehaviour
             Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
           
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
-            setMoneyValue(100);
           
         }
         if (speed == 2)
@@ -69,7 +68,6 @@ public class enemy: MonoBehaviour
                 }
             }
             Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
-            setMoneyValue(75);
 
         }
         if (speed == 3)
@@ -92,7 +90,6 @@ public class enemy: MonoBehaviour
             Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
 
             gameObject.GetComponent<Renderer>().material.color = Color.black;
-            setMoneyValue(50);
         }
         if (speed == 4)
         {
@@ -109,12 +106,10 @@ public class enemy: MonoBehaviour
             Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
            
             gameObject.GetComponent<Renderer>().material.color = Color.green;
-            setMoneyValue(25);
-            
-          
-            
+     
         }
-        
+
+        setMoneyValue(getHealth());
     }
     /// <summary>
     /// Updates this instance.
@@ -125,7 +120,7 @@ public class enemy: MonoBehaviour
         {
             Destroy(this.gameObject);
 
-            playerWallet.GetComponent<playerWallet>().addMoney(10);
+            playerWallet.GetComponent<playerWallet>().addMoney(getMoneyValue());
         }
         
         //This code to traverse through wavepoints was found in a video on youtube by Brackeys-------------------------------
