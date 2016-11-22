@@ -18,6 +18,8 @@ public class enemy: MonoBehaviour
     private int moneyValue = 0;
     private int m_damage = 1;
 
+    public GameObject playerWallet;
+
     /// <summary>
     /// Starts this instance.
     /// </summary>
@@ -122,6 +124,8 @@ public class enemy: MonoBehaviour
         if(this.health <= 0)
         {
             Destroy(this.gameObject);
+
+            playerWallet.GetComponent<playerWallet>().addMoney(10);
         }
         
         //This code to traverse through wavepoints was found in a video on youtube by Brackeys-------------------------------

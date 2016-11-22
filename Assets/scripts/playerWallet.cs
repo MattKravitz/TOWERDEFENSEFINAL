@@ -24,4 +24,8 @@ public class playerWallet : MonoBehaviour {
     {
         return m_playerMoneyTotal;
     }
+    public void addMoney(int amount)
+    {
+        m_playerMoneyTotal += amount;
+    }
 }

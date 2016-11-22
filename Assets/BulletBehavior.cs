@@ -5,7 +5,7 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 2.5f; //the speed at which the object travels
+    private static float speed = 2.3f; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
     private float x_multiplier;
@@ -68,7 +68,7 @@ public class BulletBehavior : MonoBehaviour {
         translater =
             new Vector3(
                (v_horizontal * x_multiplier * timeIncrement)
-               ,((v_vertical * timeIncrement) + (-4.9f * timeIncrement * timeIncrement))
+               ,((v_vertical * timeIncrement) + (-4.3f * timeIncrement * timeIncrement))
                ,(v_horizontal * z_multiplier * timeIncrement) );
 
         bullet.Translate(translater, Space.World);
