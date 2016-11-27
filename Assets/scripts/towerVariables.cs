@@ -115,7 +115,7 @@ public class towerVariables : MonoBehaviour {
         else
         {
             m_target = null;
-            Debug.Log("No Target");
+            //Debug.Log("No Target");
         }
     }
 

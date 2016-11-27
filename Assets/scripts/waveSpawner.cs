@@ -17,10 +17,10 @@ public class waveSpawner : MonoBehaviour {
     private int positionOffset = 0;
     private int i = 1;
     private int randCountdown;
-    public static bool start;
+    public static bool start = false;
     private static int healthPool = 100; //the starting health pool
     private static int enemyHealthLeft;
-    private static int currentWave = 1;
+    private static int currentWave = 0;
     private static bool spawnWave = false;
     private static int spawnWaveAmount;
 
@@ -47,7 +47,7 @@ public class waveSpawner : MonoBehaviour {
                 countdown = randCountdown;//set the next time for spawn
                 i++;
                 //set multiple enemies to spawn in a row
-                if(randCountdown > 5 && healthPool>1000)
+                if(randCountdown > 5 && healthPool>1000+waveNumber*5)//TODO: account for increase in enemy health
                 {
                     spawnWave = true;
                     spawnWaveAmount = Random.Range(5,11);
@@ -77,14 +77,17 @@ public class waveSpawner : MonoBehaviour {
     /// </summary>
     public static void setStart()
     {
-        start = true;//if the spawn has been clicked we set this to true
-        enemyHealthLeft = healthPool;
+        if (start == false)
+        {
+            start = true;//if the spawn has been clicked we set this to true
+            enemyHealthLeft = healthPool;
+            currentWave++;
+        }
     }
     private void endWave()
     {
         start = false;
         healthPool = healthPool + 50*currentWave;
-        currentWave++;
     }
     /// <summary>
     /// Get the current wave
