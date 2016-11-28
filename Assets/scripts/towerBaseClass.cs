@@ -8,7 +8,7 @@ public class towerBaseClass : MonoBehaviour {
     public Transform m_target;
     public enemy targetedEnemy;
     public string towersTag = "placed_tower";
-    public Collider towerCollider;
+    //public Collider towerCollider;
 
     [Header("Targeting Variables")]
     public string enemiesTag = "enemy";
@@ -43,14 +43,14 @@ public class towerBaseClass : MonoBehaviour {
             {
                 smallestDistance = enemyDistance;
                 closestEnemy = enemy;
-                Debug.Log("Redefining Target");
+                
             }
 
         }
 
         if (closestEnemy != null && smallestDistance <= towerRange)
         {
-            Debug.Log("Target Selected");
+            
             m_target = closestEnemy.transform;
             targetedEnemy = closestEnemy.GetComponent<enemy>();
             //targetedEnemy.setHealth(5);

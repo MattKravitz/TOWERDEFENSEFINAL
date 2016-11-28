@@ -51,7 +51,7 @@ public class autoAttackTower : towerBaseClass {
 
         if (projectile != null)
         {
-            Debug.Log("Firing");
+            
             projectile1.trace(m_target.transform, targetedEnemy);
         }
 
