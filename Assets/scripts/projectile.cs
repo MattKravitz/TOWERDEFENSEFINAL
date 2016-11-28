@@ -70,7 +70,7 @@ public class projectile : MonoBehaviour {
     /// <param name="directionVectorMagnitude">The direction vector magnitude.</param>
     /// <param name="distancePerFrame">The distance per frame.</param>
     /// <returns></returns>
-    bool checkCollision(float directionVectorMagnitude, float distancePerFrame)
+    virtual public bool checkCollision(float directionVectorMagnitude, float distancePerFrame)
     {
         if (directionVectorMagnitude <= distancePerFrame)
         {
@@ -85,20 +85,19 @@ public class projectile : MonoBehaviour {
     /// <summary>
     /// Actions the on collision.
     /// </summary>
-    void actionOnCollision()
+    virtual public void actionOnCollision()
     {
         GameObject impactEffect = (GameObject)Instantiate(ballisticsEffect, transform.position, transform.rotation);
 
         Destroy(impactEffect, 1f);
         Destroy(m_target.gameObject);
-        Debug.Log("Target Hit: One Shot");
         return;
     }
 
     /// <summary>
     /// Actions the on collision with damage.
     /// </summary>
-    void actionOnCollisionWithDamage()
+    virtual public void actionOnCollisionWithDamage()
     {
         dealDamage();
         Destroy(gameObject);
@@ -131,7 +130,7 @@ public class projectile : MonoBehaviour {
     /// <summary>
     /// Deals the damage.
     /// </summary>
-    void dealDamage()
+    virtual public void dealDamage()
     {
         int healthAfterDamage = m_targetEnemy.getHealth() - m_damage;
         if(damageIsLethal())
@@ -149,7 +148,7 @@ public class projectile : MonoBehaviour {
     /// Damages the is lethal.
     /// </summary>
     /// <returns></returns>
-    bool damageIsLethal()
+    virtual public bool damageIsLethal()
     {
         if((m_targetEnemy.getHealth() <= m_damage))
         {
@@ -165,7 +164,7 @@ public class projectile : MonoBehaviour {
     /// Kills the enemy.
     /// </summary>
     /// <param name="targetToKill">The target to kill.</param>
-    void killEnemy(enemy targetToKill)
+    virtual public void killEnemy(enemy targetToKill)
     {
         Destroy(targetToKill.gameObject);
         Debug.Log("Enemy killed by killEnemy Function");

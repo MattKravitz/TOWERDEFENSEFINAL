@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class towerVariables : MonoBehaviour {
-    [Header("Enemy Attributes")]
+    [Header("Enemy Attributes")] //don't need to be member variables of tower -- get methods from enemy class would work
     public int enemyHealth;
     public float enemySpeed;
     public int enemyMV; //enemyMoneyValue
@@ -10,21 +10,21 @@ public class towerVariables : MonoBehaviour {
     [Header("Tower Attributes")]
     public float towerShotSpeed =  2f;
     public int towerDamage = 1;
-    public float towerRange = 3f;
-    public Transform m_target;
-    private enemy targetedEnemy;
+    public float towerRange = 3f; //base class
+    public Transform m_target; // base class
+    private enemy targetedEnemy; // base class
 
 
     
     [Header("Projectile/Shooting Setup")]
     public GameObject projectile;
-    public Transform shootPosition;
+    public Transform shootPosition; //changed to towerPosition
     public float shotCooldown = 1;
 
     [Header("Targeting Variables")]
-    public string enemiesTag = "enemy";
-    public Transform rotatingPiece;
-    public float rotationVelocity = 5f;
+    public string enemiesTag = "enemy"; // base class
+    public Transform rotatingPiece; // base class
+    public float rotationVelocity = 5f; //base class
 
     // Use this for initialization
     void Start ()
