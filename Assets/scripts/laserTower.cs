@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class laserTower : Assets.scripts.activeTower
+public class laserTower : autoAttackTower
 {
 
     // Use this for initialization
