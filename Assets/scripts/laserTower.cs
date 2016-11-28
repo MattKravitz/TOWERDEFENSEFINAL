@@ -10,8 +10,8 @@ public class laserTower : Assets.scripts.activeTower
     /// call function to make the attack area
     /// </summary>
     void Start () {
-	
-	}
+        
+    }
 
     // Update is called once per frame
     /// <summary>
