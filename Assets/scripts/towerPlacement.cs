@@ -13,6 +13,7 @@ public class towerPlacement : MonoBehaviour {
     
     public Transform tower;
     public Transform healthTower;
+    public Transform speedTower;
 
     public Transform stand;
     public static int[] towerCheck = new int[256];
@@ -66,8 +67,8 @@ public class towerPlacement : MonoBehaviour {
         if (towerCheck[j] == 0)
         {
             //Fills the spot on the game board with a tower
-            Instantiate(healthTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation);
-            Instantiate(stand, proceduralGeneration.points[j].position + Vector3.up/10, proceduralGeneration.points[j].rotation);
+            Instantiate(speedTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation);
+            Instantiate(stand, proceduralGeneration.points[j].position, proceduralGeneration.points[j].rotation);
             towerCheck[j] = 1;
         }
     }
