@@ -10,6 +10,7 @@ public class towerPlacement : MonoBehaviour {
     private Vector3 down;
     private int j;
 
+    private int thisTower;
     
     public Transform tower;
     public Transform healthTower;
@@ -63,13 +64,23 @@ public class towerPlacement : MonoBehaviour {
     /// </summary>
     void OnMouseDown()
     {
-
+        thisTower = ToggleHandler.getTower();
         if (towerCheck[j] == 0)
         {
-            //Fills the spot on the game board with a tower
-            Instantiate(speedTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation);
+
+            if (thisTower == 0) { }
+            else if (thisTower == 1) { }
+            else if (thisTower == 2) { }
+            else if (thisTower == 3) { }
+            else if (thisTower == 4) { Instantiate(tower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
+            else if (thisTower == 5) { Instantiate(healthTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
+            else if (thisTower == 6) { }
+            else if (thisTower == 7) { }
+            else if (thisTower == 8) { Instantiate(speedTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
+
             Instantiate(stand, proceduralGeneration.points[j].position, proceduralGeneration.points[j].rotation);
             towerCheck[j] = 1;
+
         }
     }
 }

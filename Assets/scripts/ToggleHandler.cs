@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class ToggleHandler : MonoBehaviour {
+
     public Toggle laser;
     public Toggle laser1;
     public Toggle laser2;
@@ -14,7 +15,7 @@ public class ToggleHandler : MonoBehaviour {
     public Toggle passive2;
     public Toggle passive3;
 
-    private int thisTower;
+    private static int thisTower;
 
     // Use this for initialization
     void Start () {
@@ -23,11 +24,6 @@ public class ToggleHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
-
-    public void whichTower()
-    {
         if (laser.isOn) { thisTower = 0; }
         else if (laser1.isOn) { thisTower = 1; }
         else if (laser2.isOn) { thisTower = 2; }
@@ -39,9 +35,10 @@ public class ToggleHandler : MonoBehaviour {
         else if (passive1.isOn) { thisTower = 6; }
         else if (passive2.isOn) { thisTower = 7; }
         else if (passive3.isOn) { thisTower = 8; }
-    }
+	}
+    
 
-    public int getTower()
+    public static int getTower()
     {
         return thisTower;
     }
