@@ -11,7 +11,9 @@ public class towerPlacement : MonoBehaviour {
     private int j;
 
     private int thisTower;
-    
+
+    public Transform lasertower1;
+
     public Transform tower;
     public Transform healthTower;
     public Transform speedTower;
@@ -70,7 +72,7 @@ public class towerPlacement : MonoBehaviour {
         if (towerCheck[j] == 0)
         {
 
-            if (thisTower == 0) { }
+            if (thisTower == 0) { Instantiate(lasertower1, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 1) { }
             else if (thisTower == 2) { }
             else if (thisTower == 3) { }
