@@ -15,6 +15,7 @@ public class towerPlacement : MonoBehaviour {
     public Transform tower;
     public Transform healthTower;
     public Transform speedTower;
+    public Transform damTower;
 
     public Transform stand;
     public static int[] towerCheck = new int[256];
@@ -75,7 +76,7 @@ public class towerPlacement : MonoBehaviour {
             else if (thisTower == 4) { Instantiate(tower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 5) { Instantiate(healthTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 6) { }
-            else if (thisTower == 7) { }
+            else if (thisTower == 7) { Instantiate(damTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 8) { Instantiate(speedTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
 
             Instantiate(stand, proceduralGeneration.points[j].position, proceduralGeneration.points[j].rotation);
