@@ -13,6 +13,9 @@ public class towerPlacement : MonoBehaviour {
     private int thisTower;
 
     public Transform lasertower1;
+    public Transform lasertower2;
+    public Transform lasertower3;
+    public Transform lasertower4;
 
     public Transform tower;
     public Transform healthTower;
@@ -73,9 +76,9 @@ public class towerPlacement : MonoBehaviour {
         {
 
             if (thisTower == 0) { Instantiate(lasertower1, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
-            else if (thisTower == 1) { }
-            else if (thisTower == 2) { }
-            else if (thisTower == 3) { }
+            else if (thisTower == 1) { Instantiate(lasertower2, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
+            else if (thisTower == 2) { Instantiate(lasertower3, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
+            else if (thisTower == 3) { Instantiate(lasertower4, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 4) { Instantiate(tower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 5) { Instantiate(healthTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 6) { Instantiate(moneyTower, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }

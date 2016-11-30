@@ -21,6 +21,7 @@ public class tesLaserScript : MonoBehaviour {
         laser = GetComponent<LineRenderer>();
         laser.SetWidth(.1f, .1f);
         laser.SetPosition(0, towerPosition);
+        
     }
 	
 	// Update is called once per frame
@@ -36,6 +37,7 @@ public class tesLaserScript : MonoBehaviour {
             }
             if (targetList.Count != 0)
             {
+                //-----this is where its fucking up
                 targetPosition = currentTarget.transform.position;
                 laser.SetPosition(1, targetPosition);
              
