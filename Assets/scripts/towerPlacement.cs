@@ -11,6 +11,7 @@ public class towerPlacement : MonoBehaviour {
     private int j;
 
     private int thisTower;
+    private int cost;
 
     public Transform lasertower1;
     public Transform lasertower2;
@@ -25,6 +26,9 @@ public class towerPlacement : MonoBehaviour {
 
     public Transform stand;
     public static int[] towerCheck = new int[256];
+
+    public GameObject money;
+    private static int amount;
 
     // Use this for initialization
     /// <summary>
@@ -72,8 +76,12 @@ public class towerPlacement : MonoBehaviour {
     void OnMouseDown()
     {
         thisTower = ToggleHandler.getTower();
-        if (towerCheck[j] == 0)
+        cost = ToggleHandler.getCost();
+        amount = playerWallet.getPlayerMoneyTotal();
+
+        if (towerCheck[j] == 0 && cost <= amount)
         {
+            playerWallet.subtractMoney(cost);
 
             if (thisTower == 0) { Instantiate(lasertower1, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }
             else if (thisTower == 1) { Instantiate(lasertower2, proceduralGeneration.redpoints[j].position, proceduralGeneration.redpoints[j].rotation); }

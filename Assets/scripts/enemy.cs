@@ -109,7 +109,7 @@ public class enemy: MonoBehaviour
      
         }
 
-        setMoneyValue(getHealth());
+        setMoneyValue(getHealth()/10);
     }
     /// <summary>
     /// Updates this instance.

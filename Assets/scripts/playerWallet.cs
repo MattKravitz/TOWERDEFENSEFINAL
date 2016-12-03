@@ -28,4 +28,8 @@ public class playerWallet : MonoBehaviour {
     {
         m_playerMoneyTotal += amount;
     }
+    public static void subtractMoney(int amount)
+    {
+        m_playerMoneyTotal -= amount;
+    }
 }

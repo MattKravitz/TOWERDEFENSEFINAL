@@ -15,6 +15,8 @@ public class ToggleHandler : MonoBehaviour {
     public Toggle passive2;
     public Toggle passive3;
 
+    public static int cost = 100;
+
     private static int thisTower;
 
     // Use this for initialization
@@ -24,22 +26,27 @@ public class ToggleHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (laser.isOn) { thisTower = 0; }
-        else if (laser1.isOn) { thisTower = 1; }
-        else if (laser2.isOn) { thisTower = 2; }
-        else if (laser3.isOn) { thisTower = 3; }
+        if (laser.isOn) { thisTower = 0; cost = 100; }
+        else if (laser1.isOn) { thisTower = 1; cost = 100; }
+        else if (laser2.isOn) { thisTower = 2; cost = 100; }
+        else if (laser3.isOn) { thisTower = 3; cost = 100; }
 
-        else if (gunner.isOn) { thisTower = 4; }
+        else if (gunner.isOn) { thisTower = 4; cost = 50; }
 
-        else if (passive.isOn) { thisTower = 5; }
-        else if (passive1.isOn) { thisTower = 6; }
-        else if (passive2.isOn) { thisTower = 7; }
-        else if (passive3.isOn) { thisTower = 8; }
+        else if (passive.isOn) { thisTower = 5; cost = 300; }
+        else if (passive1.isOn) { thisTower = 6; cost = 300; }
+        else if (passive2.isOn) { thisTower = 7; cost = 300; }
+        else if (passive3.isOn) { thisTower = 8; cost = 300; }
 	}
     
 
     public static int getTower()
     {
         return thisTower;
+    }
+
+    public static int getCost()
+    {
+        return cost;
     }
 }
