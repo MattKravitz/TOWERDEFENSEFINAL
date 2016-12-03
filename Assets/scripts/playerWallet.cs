@@ -4,7 +4,7 @@ using System.Collections;
 public class playerWallet : MonoBehaviour {
 
     [Header("Wallet Attributes")]
-    public static int m_playerMoneyTotal = 0;
+    public static int m_playerMoneyTotal = 100;
 
 	// Use this for initialization
 	void Start () {

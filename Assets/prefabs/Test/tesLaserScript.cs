@@ -30,8 +30,12 @@ public class tesLaserScript : MonoBehaviour {
         
         if (targetList.Count != 0)
         {
-            if (currentTarget == null)
+            while (currentTarget == null)
             {
+                if(targetList.Count == 0)
+                {
+                    break;
+                }
                 targetList.Remove(currentTarget);
                 setTarget();
             }
