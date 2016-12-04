@@ -25,7 +25,7 @@ public class towerPlacement : MonoBehaviour {
     public Transform moneyTower;
 
     public Transform stand;
-    public static int[] towerCheck = new int[256];
+    public int[] towerCheck = new int[256];
 
     public GameObject money;
     private static int amount;

@@ -39,7 +39,7 @@ public class onHover : MonoBehaviour {
     void OnMouseOver()
     {
         //if there isnt a tower at this position, then exectute this onmousedown
-        if (towerPlacement.towerCheck[j] != 1)
+        if (this.gameObject.GetComponent<towerPlacement>().towerCheck[j] != 1)
         {
             if (this.transform.position != endPosition)
             {
