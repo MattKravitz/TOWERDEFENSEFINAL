@@ -21,8 +21,8 @@ public class proceduralGeneration : MonoBehaviour {
     public Transform secondLevelSpawnPoint;
     public Transform enemyPath;
     public Transform waypoint;
-    public static List<Transform> myWaypoints = new List<Transform>();
-    public static List<Vector3> myWaypointsPositions = new List<Vector3>();
+    public List<Transform> myWaypoints = new List<Transform>();
+    public List<Vector3> myWaypointsPositions = new List<Vector3>();
 
     private int start = 0;
     private int currentPosition = 0;

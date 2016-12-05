@@ -19,15 +19,21 @@ public class enemy: MonoBehaviour
     private int m_damage = 1;
 
     public GameObject playerWallet;
+    public GameObject gamemaster;
 
     /// <summary>
     /// Starts this instance.
     /// </summary>
     void Awake()
     {
+        gamemaster = GameObject.FindGameObjectWithTag("gamemaster");
+        target = gamemaster.GetComponent<proceduralGeneration>().myWaypointsPositions[0];
+
+
         playerTower = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>();
         //this is just the basic way of how im going to give every enemy its attributes
-        target = proceduralGeneration.myWaypointsPositions[0];
+        
+
         speed = Random.Range(1, 5);
         this.tag = "enemy";
 
@@ -141,14 +147,14 @@ public class enemy: MonoBehaviour
     void GetNextWaypoint()
     {
         //The basic if statement to destroy the gameobject and the wavepoint incrementation was found in a video on youtube by Brackeys-------------------------------
-        if (wavepointIndex >= proceduralGeneration.myWaypoints.Count - 1)
+        if (wavepointIndex >= gamemaster.GetComponent<proceduralGeneration>().myWaypoints.Count - 1)
         {
             playerTower.takeDamage(this);
             Destroy(this.gameObject);
             return;
         }
         wavepointIndex++;
-        target = proceduralGeneration.myWaypointsPositions[wavepointIndex];
+        target = gamemaster.GetComponent<proceduralGeneration>().myWaypointsPositions[wavepointIndex];
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
