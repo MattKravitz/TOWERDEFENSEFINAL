@@ -9,18 +9,19 @@ public class healthTower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentHealth = ActiveTowerRotate.getHealth();
+        wSpawner = this.gameObject.GetComponent<waveSpawner>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(wSpawner.getWaveState() == false && hasHealthIncreased == false){
+        if(waveSpawner.getWaveState() == false && hasHealthIncreased == false){
             currentHealth = ActiveTowerRotate.getHealth();
             if (currentHealth < 100)
             {
                 ActiveTowerRotate.setHealth(currentHealth + healthIncrease);
                 hasHealthIncreased = true;
             }
-        } else if(wSpawner.getWaveState() == true && hasHealthIncreased == true)
+        } else if(waveSpawner.getWaveState() == true && hasHealthIncreased == true)
         {
             hasHealthIncreased = false;
         }
