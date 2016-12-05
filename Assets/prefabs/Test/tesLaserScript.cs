@@ -12,6 +12,7 @@ public class tesLaserScript : MonoBehaviour {
     private float nextTime = 0;
     private float interval = 1;
     private float counter = 0;
+    private int damage = 5;
 
     // Use this for initialization
     void Start () {
@@ -47,7 +48,7 @@ public class tesLaserScript : MonoBehaviour {
              
                 if (counter >= nextTime)
                 {
-                    currentTarget.GetComponent<enemy>().setHealth(currentTarget.gameObject.GetComponent<enemy>().getHealth() - 5);
+                    currentTarget.GetComponent<enemy>().setHealth(currentTarget.gameObject.GetComponent<enemy>().getHealth() - damage);
                     nextTime += interval;
 
                 }
@@ -86,6 +87,14 @@ public class tesLaserScript : MonoBehaviour {
         {
             currentTarget = targetList[0];
         }
+    }
+    public int getDamage()
+    {
+        return damage;
+    }
+    public void setDamage(int newDamageValue)
+    {
+        damage = newDamageValue;
     }
 
 }

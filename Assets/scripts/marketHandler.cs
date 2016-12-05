@@ -13,7 +13,7 @@ public class marketHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameWallet.setPlayerMoneyTotal(0);
+        gameWallet.setPlayerMoneyTotal(100);
 
 	}
 	
