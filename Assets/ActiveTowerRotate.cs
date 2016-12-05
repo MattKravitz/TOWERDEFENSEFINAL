@@ -61,7 +61,7 @@ public class ActiveTowerRotate : MonoBehaviour {
         Debug.Log("Health Set to");
         Debug.Log(getHealth());
     }
-    public void setHealth(int newHealth)
+    public static void setHealth(int newHealth)
     {
         m_health = newHealth;
     }
