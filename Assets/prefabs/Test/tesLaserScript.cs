@@ -12,7 +12,7 @@ public class tesLaserScript : MonoBehaviour {
     private float nextTime = 0;
     private float interval = 1;
     private float counter = 0;
-    private int damage = 5;
+    public int damage = 5;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +22,6 @@ public class tesLaserScript : MonoBehaviour {
         laser = GetComponent<LineRenderer>();
         laser.SetWidth(.1f, .1f);
         laser.SetPosition(0, towerPosition);
-        
     }
 	
 	// Update is called once per frame
