@@ -58,6 +58,7 @@
      <Compile Include="Assets\scripts\deleteGrass.cs" />
      <Compile Include="Assets\scripts\enemy.cs" />
      <Compile Include="Assets\scripts\healthTower.cs" />
+     <Compile Include="Assets\scripts\isGameOver.cs" />
      <Compile Include="Assets\scripts\laserTower.cs" />
      <Compile Include="Assets\scripts\lowerLevelSpawns.cs" />
      <Compile Include="Assets\scripts\marketHandler.cs" />
