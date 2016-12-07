@@ -5,7 +5,7 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 2.3f; //the speed at which the object travels
+    private static float speed = 0; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
     private float x_multiplier;
@@ -90,6 +90,11 @@ public class BulletBehavior : MonoBehaviour {
         }
 
         return true;
+    }
+
+    public void setSpeed(float input_speed)
+    {
+        speed = input_speed;
     }
     
 }

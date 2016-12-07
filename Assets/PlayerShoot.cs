@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     private float vertical;
 
     private static int m_health = 100;
-    private float shot_speed;
+    private float shot_speed = 0;
 
     private float delayTime = 0;
     /// <summary>
@@ -57,11 +57,23 @@ public class PlayerShoot : MonoBehaviour
         }
 
         //if the user presses the space key, create a bullet with the same rotation as the tower
-        if (Input.GetKeyDown(KeyCode.Space)) //press
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            shot_speed = Time.time;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space)) //press
         {
             if(Time.time > delayTime)
             {
                 Instantiate(bullet, turret.position, turret.rotation);
+                shot_speed = (Time.time - shot_speed) * 5f;
+                if(shot_speed > 3)
+                {
+                    shot_speed = 3;
+                }
+                bullet.GetComponent<BulletBehavior>().setSpeed(shot_speed);
                 delayTime = Time.time + 0.5f;
             }
         }
