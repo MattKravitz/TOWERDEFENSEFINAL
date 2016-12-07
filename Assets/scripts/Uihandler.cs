@@ -19,10 +19,9 @@ public class Uihandler : MonoBehaviour {
 	void Start () {
         counter = Time.deltaTime;
         moneyVal = playerWallet.getPlayerMoneyTotal();
-        initialHealth = ActiveTowerRotate.getHealth();
+        initialHealth = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
 
-        
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,7 +29,7 @@ public class Uihandler : MonoBehaviour {
         counter = Time.deltaTime + counter;
         counter2 = Mathf.RoundToInt(counter);
         moneyVal = playerWallet.getPlayerMoneyTotal();
-        healthVal = ActiveTowerRotate.getHealth();
+        healthVal = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
 
         time.text = counter2.ToString();
         money.text = string.Concat("$", moneyVal.ToString());

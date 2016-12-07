@@ -12,9 +12,9 @@ public class isGameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    Health = ActiveTowerRotate.getHealth();
+	    Health = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
 
-        if(Health < 1)
+        if (Health < 1)
         {
             Application.LoadLevel(2); 
         }
