@@ -4,7 +4,7 @@ using System.Collections;
 public class healthTower : MonoBehaviour {
     public waveSpawner wSpawner;
     private GameObject thisGame;
-    private bool hasHealthIncreased = false;
+    private bool hasHealthIncreased = true;
     public int healthIncrease = 1;
     private int currentHealth;
 	// Use this for initialization
@@ -16,14 +16,14 @@ public class healthTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(wSpawner.getWaveState() == false && hasHealthIncreased == false){
+        if(wSpawner.getWaveState() == true && hasHealthIncreased == false){
             currentHealth = ActiveTowerRotate.getHealth();
             if (currentHealth < 100)
             {
                 ActiveTowerRotate.setHealth(currentHealth + healthIncrease);
-                hasHealthIncreased = true;
             }
-        } else if(wSpawner.getWaveState() == true && hasHealthIncreased == true)
+            hasHealthIncreased = true;
+        } else if(wSpawner.getWaveState() == false && hasHealthIncreased == true)
         {
             hasHealthIncreased = false;
         }
