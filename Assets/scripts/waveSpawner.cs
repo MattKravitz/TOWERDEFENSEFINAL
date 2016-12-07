@@ -107,7 +107,7 @@ public class waveSpawner : MonoBehaviour {
         enemyHealthLeft = enemyHealthLeft - newEnemy.getHealth();
         Debug.Log("Health pool left " + enemyHealthLeft);
     }
-    public static bool getWaveState()
+    public bool getWaveState()
     {
         return start;
     }
