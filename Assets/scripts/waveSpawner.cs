@@ -17,12 +17,12 @@ public class waveSpawner : MonoBehaviour {
     private int positionOffset = 0;
     private int i = 1;
     private int randCountdown;
-    public static bool start = false;
-    private static int healthPool = 100; //the starting health pool
-    private static int enemyHealthLeft;
-    private static int currentWave = 0;
-    private static bool spawnWave = false;
-    private static int spawnWaveAmount;
+    public bool start = false;
+    private int healthPool = 100; //the starting health pool
+    private int enemyHealthLeft;
+    private int currentWave = 0;
+    private bool spawnWave = false;
+    private int spawnWaveAmount;
 
     /// <summary>
     /// Starts this instance.
@@ -75,7 +75,7 @@ public class waveSpawner : MonoBehaviour {
     /// <summary>
     /// Sets the start.
     /// </summary>
-    public static void setStart()
+    public void setStart()
     {
         if (start == false)
         {
@@ -93,7 +93,7 @@ public class waveSpawner : MonoBehaviour {
     /// Get the current wave
     /// </summary>
     /// <returns>currentWave</returns>
-    public static int getWave()
+    public int getWave()
     {
         return currentWave;
     }

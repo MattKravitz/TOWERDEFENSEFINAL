@@ -29,6 +29,8 @@ public class enemy: MonoBehaviour
         gamemaster = GameObject.FindGameObjectWithTag("gamemaster");
         target = gamemaster.GetComponent<proceduralGeneration>().myWaypointsPositions[0];
 
+        int wave;
+        wave = GameObject.FindGameObjectWithTag("gamemaster").GetComponent<waveSpawner>().getWave();
 
         playerTower = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>();
         //this is just the basic way of how im going to give every enemy its attributes
@@ -40,7 +42,7 @@ public class enemy: MonoBehaviour
         if (speed == 1)
         {
             //Loop to increase speed every five rounds, and health every ten
-            for (int i = 1; i <= waveSpawner.getWave(); i++)
+            for (int i = 1; i <= wave; i++)
             {
                 health = 100;
                 if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
@@ -52,7 +54,7 @@ public class enemy: MonoBehaviour
                     health = health + 25;
                 }
             }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
+            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
           
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
           
@@ -61,7 +63,7 @@ public class enemy: MonoBehaviour
         {
             //Loop to increase speed every five rounds, and health every ten
 
-            for (int i = 1; i <= waveSpawner.getWave(); i++)
+            for (int i = 1; i <= wave; i++)
             {
                 health = 75;
                 if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
@@ -73,14 +75,14 @@ public class enemy: MonoBehaviour
                     health = health + 25;
                 }
             }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
+            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
 
         }
         if (speed == 3)
         {
             //Loop to increase speed every five rounds, and health every ten
 
-            for (int i = 1; i <= waveSpawner.getWave(); i++)
+            for (int i = 1; i <= wave; i++)
             {
                 health = 50;
                 if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
@@ -93,7 +95,7 @@ public class enemy: MonoBehaviour
                 }
 
             }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
+            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
 
             gameObject.GetComponent<Renderer>().material.color = Color.black;
         }
@@ -101,7 +103,7 @@ public class enemy: MonoBehaviour
         {
             //Loop to increase speed every five rounds, and health every ten
 
-            for (int i = 1; i <= waveSpawner.getWave(); i++)
+            for (int i = 1; i <= wave; i++)
             {
                 health = 25;
                 if(i % 5 == 0) //If a multiple of 5, increase speed by .25f
@@ -109,7 +111,7 @@ public class enemy: MonoBehaviour
                     speed = speed + .25f;
                 }
             }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + waveSpawner.getWave());
+            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
            
             gameObject.GetComponent<Renderer>().material.color = Color.green;
      

@@ -25,7 +25,7 @@ public class Uihandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        waveNumber = waveSpawner.getWave();
+        waveNumber = GameObject.FindGameObjectWithTag("gamemaster").GetComponent<waveSpawner>().getWave();
         counter = Time.deltaTime + counter;
         counter2 = Mathf.RoundToInt(counter);
         moneyVal = playerWallet.getPlayerMoneyTotal();
