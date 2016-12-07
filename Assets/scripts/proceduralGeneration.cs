@@ -79,8 +79,8 @@ public class proceduralGeneration : MonoBehaviour {
         
         for (int i = 0; i < enemyPaths.Length; i++)
         {
-            enemyPaths[238] = 0;
-            enemyPaths[17] = 0;
+            enemyPaths[238] = 1;
+            enemyPaths[17] = 1;
 
             if (enemyPaths[i] == 1)
             {
