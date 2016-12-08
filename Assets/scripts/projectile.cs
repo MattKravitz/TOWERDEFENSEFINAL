@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Assets.scripts;
 
 /// <summary>
 /// 
@@ -9,7 +10,7 @@ public class projectile : MonoBehaviour {
     public int m_damage;
     public float m_projectileSpeed = 45f;
     public GameObject ballisticsEffect;
-
+    public GameObject playerWallet;
 
    // private Transform m_shootLocation;
     private Transform m_target;
@@ -136,6 +137,7 @@ public class projectile : MonoBehaviour {
         int healthAfterDamage = m_targetEnemy.getHealth() - m_damage;
         if(damageIsLethal())
         {
+            
             killEnemy(m_targetEnemy);
             //Debug.Log("Target should self-destruct on next update");
         }
@@ -167,6 +169,7 @@ public class projectile : MonoBehaviour {
     /// <param name="targetToKill">The target to kill.</param>
     void killEnemy(enemy targetToKill)
     {
+        playerWallet.GetComponent<playerWallet>().addMoney(targetToKill.getMoneyValue());
         Destroy(targetToKill.gameObject);
         Debug.Log("Enemy killed by killEnemy Function");
     }
