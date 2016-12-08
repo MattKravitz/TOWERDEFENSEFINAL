@@ -78,6 +78,7 @@
     <Compile Include="Assets\scripts\damageTower.cs" />
     <Compile Include="Assets\scripts\deleteGrass.cs" />
     <Compile Include="Assets\scripts\enemy.cs" />
+    <Compile Include="Assets\scripts\gunnerTower.cs" />
     <Compile Include="Assets\scripts\healthTower.cs" />
     <Compile Include="Assets\scripts\isGameOver.cs" />
     <Compile Include="Assets\scripts\laserTower.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\scripts\quitScene.cs" />
     <Compile Include="Assets\scripts\rotatingCamera.cs" />
     <Compile Include="Assets\scripts\sun.cs" />
+    <Compile Include="Assets\scripts\towerBaseClass.cs" />
     <Compile Include="Assets\scripts\towerPlacement.cs" />
     <Compile Include="Assets\scripts\towerVariables.cs" />
     <Compile Include="Assets\scripts\upgrades.cs" />
