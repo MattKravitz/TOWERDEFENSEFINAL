@@ -49,6 +49,7 @@
      <Compile Include="Assets\BulletBehavior.cs" />
      <Compile Include="Assets\CameraBehavior.cs" />
      <Compile Include="Assets\PlayerShoot.cs" />
+     <Compile Include="Assets\Testing.cs" />
      <Compile Include="Assets\prefabs\Test\tesLaserScript.cs" />
      <Compile Include="Assets\scripts\ToggleHandler.cs" />
      <Compile Include="Assets\scripts\Uihandler.cs" />

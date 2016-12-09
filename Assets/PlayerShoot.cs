@@ -68,7 +68,7 @@ public class PlayerShoot : MonoBehaviour
             if(Time.time > delayTime)
             {
                 Instantiate(bullet, turret.position, turret.rotation);
-                shot_speed = (Time.time - shot_speed) * 5f;
+                shot_speed = (Time.time - shot_speed) * 5f + 0.75f;
                 if(shot_speed > 3)
                 {
                     shot_speed = 3;
