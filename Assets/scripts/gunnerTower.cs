@@ -12,8 +12,32 @@ public class gunnerTower : towerBaseClass {
     public GameObject projectile;
     public float shotCooldown = 1f;
 
-	// Use this for initialization
-	void Start ()
+    public projectile projectile1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public enemy enemy
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         InvokeRepeating("refreshTarget", 2f, .5f);
 	}
@@ -37,6 +61,9 @@ public class gunnerTower : towerBaseClass {
             shotCooldown -= Time.deltaTime;
         }
     }
+    /// <summary>
+    /// Fires this instance.
+    /// </summary>
     virtual public void fire()
     {
         /**This is a temporary position configuration for the prototype only
@@ -57,12 +84,20 @@ public class gunnerTower : towerBaseClass {
 
     }
 
+    /// <summary>
+    /// Sets the tower shot speed.
+    /// </summary>
+    /// <param name="shotSpeed">The shot speed.</param>
     public void setTowerShotSpeed(float shotSpeed)
     {
         towerShotSpeed = shotSpeed;
 
     }
 
+    /// <summary>
+    /// Gets the tower speed.
+    /// </summary>
+    /// <returns></returns>
     public float getTowerSpeed()
     {
         return towerShotSpeed;

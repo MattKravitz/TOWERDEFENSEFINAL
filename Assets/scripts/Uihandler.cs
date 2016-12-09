@@ -15,16 +15,80 @@ public class Uihandler : MonoBehaviour {
     public Text money;
     public Text health;
     public Text wave;
-	// Use this for initialization
-	void Start () {
+
+    /// <summary>
+    /// Gets or sets the player wallet.
+    /// </summary>
+    /// <value>
+    /// The player wallet.
+    /// </value>
+    /// <exception cref="System.NotImplementedException"></exception>
+    public playerWallet playerWallet
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the active tower.
+    /// </summary>
+    /// <value>
+    /// The active tower.
+    /// </value>
+    /// <exception cref="System.NotImplementedException"></exception>
+    public Assets.scripts.activeTower activeTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the wave spawner.
+    /// </summary>
+    /// <value>
+    /// The wave spawner.
+    /// </value>
+    /// <exception cref="System.NotImplementedException"></exception>
+    public waveSpawner waveSpawner
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    // Use this for initialization
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
+    void Start () {
         counter = Time.deltaTime;
         moneyVal = playerWallet.getPlayerMoneyTotal();
         initialHealth = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    void Update () {
         waveNumber = GameObject.FindGameObjectWithTag("gamemaster").GetComponent<waveSpawner>().getWave();
         counter = Time.deltaTime + counter;
         counter2 = Mathf.RoundToInt(counter);

@@ -21,6 +21,18 @@ public class enemy: MonoBehaviour
     public GameObject playerWallet;
     public GameObject gamemaster;
 
+    public playerWallet playerWallet1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// Starts this instance.
     /// </summary>
@@ -210,16 +222,28 @@ public class enemy: MonoBehaviour
         speed = s;
     }
 
-   public void setDamage(int damage)
+    /// <summary>
+    /// Sets the damage.
+    /// </summary>
+    /// <param name="damage">The damage.</param>
+    public void setDamage(int damage)
     {
         m_damage = damage;
     }
-    
+
+    /// <summary>
+    /// Gets the damage.
+    /// </summary>
+    /// <returns></returns>
     public int getDamage()
     {
         return m_damage;
     }
 
+    /// <summary>
+    /// Attacks the enemy.
+    /// </summary>
+    /// <param name="damage">The damage.</param>
     public void attackEnemy(int damage)
     {
         health = health - damage;

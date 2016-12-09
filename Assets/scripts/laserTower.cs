@@ -33,6 +33,9 @@ public class laserTower : Assets.scripts.activeTower
         Debug.Log(tower);
 	}
 
+    /// <summary>
+    /// Whiches the tower.
+    /// </summary>
     public void whichTower()
     {
         if (laser.isOn) { tower = 0; }

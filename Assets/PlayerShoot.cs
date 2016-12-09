@@ -78,6 +78,10 @@ public class PlayerShoot : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Takes the damage.
+    /// </summary>
+    /// <param name="enemyDealingDamage">The enemy dealing damage.</param>
     public void takeDamage(enemy enemyDealingDamage)
     { 
         int damageTaken = enemyDealingDamage.getDamage();
@@ -86,11 +90,19 @@ public class PlayerShoot : MonoBehaviour
         setHealth(newHealth);
         Debug.Log("Health Set to " + getHealth());
     }
+    /// <summary>
+    /// Sets the health.
+    /// </summary>
+    /// <param name="newHealth">The new health.</param>
     public void setHealth(int newHealth)
     {
         m_health = newHealth;
     }
 
+    /// <summary>
+    /// Gets the health.
+    /// </summary>
+    /// <returns></returns>
     public static int getHealth()
     {
         return m_health;

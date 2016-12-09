@@ -16,11 +16,17 @@ public class onHoverStart : MonoBehaviour {
 	
 	}
 
+    /// <summary>
+    /// Called when [mouse over].
+    /// </summary>
     void OnMouseOver()
     {
         this.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
+    /// <summary>
+    /// Called when [mouse exit].
+    /// </summary>
     void OnMouseExit()
     {
         this.gameObject.GetComponent<Renderer>().material.color = Color.red;

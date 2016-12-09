@@ -22,6 +22,63 @@ namespace Assets.scripts
         int count;
 
         /// <summary>
+        /// Gets or sets the bullet behavior.
+        /// </summary>
+        /// <value>
+        /// The bullet behavior.
+        /// </value>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public BulletBehavior BulletBehavior
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the player shoot.
+        /// </summary>
+        /// <value>
+        /// The player shoot.
+        /// </value>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public PlayerShoot PlayerShoot
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the active tower rotate.
+        /// </summary>
+        /// <value>
+        /// The active tower rotate.
+        /// </value>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public ActiveTowerRotate ActiveTowerRotate
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        /// <summary>
         /// initialize the tower
         /// call function to make the attack area
         /// </summary>
@@ -72,12 +129,12 @@ namespace Assets.scripts
         {
             if (col.gameObject.tag == "enemy")
             {
-                
+
                 try
                 {
                     targetList.Add(col.gameObject);
                     Debug.Log("new target added to list");
-                    if(currentTarget == null)
+                    if (currentTarget == null)
                     {
                         setTarget();
                     }
@@ -98,6 +155,9 @@ namespace Assets.scripts
                 setTarget();
             }
         }
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
         void Update()
         {
             if(targetList.Count != 0)

@@ -54,6 +54,9 @@ public class BulletBehavior : MonoBehaviour {
         
     }
 
+    /// <summary>
+    /// Fixeds the update.
+    /// </summary>
     public void FixedUpdate()
     {
         
@@ -75,6 +78,10 @@ public class BulletBehavior : MonoBehaviour {
         
     }
 
+    /// <summary>
+    /// Hits the ground.
+    /// </summary>
+    /// <returns></returns>
     private bool HitGround()
     {
         int layerMask = (1 << 8);
@@ -92,6 +99,10 @@ public class BulletBehavior : MonoBehaviour {
         return true;
     }
 
+    /// <summary>
+    /// Sets the speed.
+    /// </summary>
+    /// <param name="input_speed">The input speed.</param>
     public void setSpeed(float input_speed)
     {
         speed = input_speed;

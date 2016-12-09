@@ -16,6 +16,18 @@ public class projectile : MonoBehaviour {
     private Transform m_target;
     private enemy m_targetEnemy;
 
+    public playerWallet playerWallet1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// Sets the damage.
     /// </summary>

@@ -30,6 +30,54 @@ public class towerPlacement : MonoBehaviour {
     public GameObject money;
     private static int amount;
 
+    public laserTower laserTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public healthTower healthTower1
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public damageTower damageTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public gunnerTower gunnerTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     // Use this for initialization
     /// <summary>
     /// Starts this instance.

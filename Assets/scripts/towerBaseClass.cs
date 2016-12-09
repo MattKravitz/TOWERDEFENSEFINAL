@@ -22,7 +22,10 @@ public class towerBaseClass : MonoBehaviour {
     public int towerCost;
     public int towerValue;
 
-    public  void acquireTarget()
+    /// <summary>
+    /// Acquires the target.
+    /// </summary>
+    public void acquireTarget()
     {
         Vector3 direction = m_target.position - m_towerPosition.position;
         Quaternion towerRotation = Quaternion.LookRotation(direction);
@@ -30,6 +33,9 @@ public class towerBaseClass : MonoBehaviour {
         m_rotatingPiece.rotation = Quaternion.Euler(0f, convertedRotation.y, 0f);
     }
 
+    /// <summary>
+    /// Refreshes the target.
+    /// </summary>
     virtual public void refreshTarget()
     {
         GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag(enemiesTag);
@@ -63,44 +69,84 @@ public class towerBaseClass : MonoBehaviour {
         }
     }
 
-    public  void setTowerRange(float range)
+    /// <summary>
+    /// Sets the tower range.
+    /// </summary>
+    /// <param name="range">The range.</param>
+    public void setTowerRange(float range)
     {
         towerRange = range;
     }
-    public  float getTowerRange()
+    /// <summary>
+    /// Gets the tower range.
+    /// </summary>
+    /// <returns></returns>
+    public float getTowerRange()
     {
         return towerRange;
     }
-    public  void setTowerTarget(Transform target)
+    /// <summary>
+    /// Sets the tower target.
+    /// </summary>
+    /// <param name="target">The target.</param>
+    public void setTowerTarget(Transform target)
     {
         m_target = target;
     }
-    public  Transform getTowerTarget()
+    /// <summary>
+    /// Gets the tower target.
+    /// </summary>
+    /// <returns></returns>
+    public Transform getTowerTarget()
     {
         return m_target;
     }
+    /// <summary>
+    /// Sets the targeted enemy.
+    /// </summary>
+    /// <param name="newEnemy">The new enemy.</param>
     public void setTargetedEnemy(enemy newEnemy)
     {
         targetedEnemy = newEnemy;
     }
+    /// <summary>
+    /// Gets the targeted enemy.
+    /// </summary>
+    /// <returns></returns>
     public enemy getTargetedEnemy()
     {
         return targetedEnemy;
     }
+    /// <summary>
+    /// Sets the tower cost.
+    /// </summary>
+    /// <param name="cost">The cost.</param>
     public void setTowerCost(int cost)
     {
         towerCost = cost;
     }
+    /// <summary>
+    /// Gets the tower cost.
+    /// </summary>
+    /// <returns></returns>
     public int getTowerCost()
     {
         return towerCost;
     }
-   
+
+    /// <summary>
+    /// Gets the tower damage.
+    /// </summary>
+    /// <returns></returns>
     public int getTowerDamage()
     {
         return towerDamage;
     }
 
+    /// <summary>
+    /// Sets the tower damage.
+    /// </summary>
+    /// <param name="dmg">The DMG.</param>
     public void setTowerDamage(int dmg)
     {
         towerDamage = dmg;

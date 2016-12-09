@@ -86,6 +86,9 @@ public class towerVariables : MonoBehaviour {
         Vector3 convertedRotation = Quaternion.Lerp(rotatingPiece.rotation, towerRotation, Time.deltaTime * rotationVelocity).eulerAngles;
         rotatingPiece.rotation = Quaternion.Euler(0f, convertedRotation.y, 0f);
     }
+    /// <summary>
+    /// Refreshes the target.
+    /// </summary>
     void refreshTarget()
     {
         GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag(enemiesTag);

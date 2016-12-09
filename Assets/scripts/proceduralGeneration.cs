@@ -31,6 +31,30 @@ public class proceduralGeneration : MonoBehaviour {
     private int meow = 0;
     private int incrementor = 0;
 
+    public lowerLevelSpawns lowerLevelSpawns
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public waveSpawner waveSpawner
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// Starts this instance.
     /// </summary>

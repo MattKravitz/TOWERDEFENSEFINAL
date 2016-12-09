@@ -25,6 +25,25 @@ public class waveSpawner : MonoBehaviour {
     private int spawnWaveAmount;
 
     /// <summary>
+    /// Gets or sets the enemy.
+    /// </summary>
+    /// <value>
+    /// The enemy.
+    /// </value>
+    /// <exception cref="System.NotImplementedException"></exception>
+    public enemy enemy
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    /// <summary>
     /// Starts this instance.
     /// </summary>
     void Start()
@@ -107,6 +126,10 @@ public class waveSpawner : MonoBehaviour {
         enemyHealthLeft = enemyHealthLeft - newEnemy.getHealth();
         Debug.Log("Health pool left " + enemyHealthLeft);
     }
+    /// <summary>
+    /// Gets the state of the wave.
+    /// </summary>
+    /// <returns></returns>
     public bool getWaveState()
     {
         return start;

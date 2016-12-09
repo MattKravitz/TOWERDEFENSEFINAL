@@ -31,6 +31,54 @@ public class ToggleHandler : MonoBehaviour {
 
     private static int thisTower;
 
+    public laserTower laserTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public damageTower damageTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public healthTower healthTower
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
+    public towerPlacement towerPlacement
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+
+        set
+        {
+        }
+    }
+
     // Use this for initialization
     void Start () {
 	
@@ -107,13 +155,21 @@ public class ToggleHandler : MonoBehaviour {
         }
 
     }
-    
 
+
+    /// <summary>
+    /// Gets the tower.
+    /// </summary>
+    /// <returns></returns>
     public static int getTower()
     {
         return thisTower;
     }
 
+    /// <summary>
+    /// Gets the cost.
+    /// </summary>
+    /// <returns></returns>
     public static int getCost()
     {
         return cost;

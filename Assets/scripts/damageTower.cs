@@ -9,6 +9,9 @@ public class damageTower : MonoBehaviour {
     private Vector3 towerPosition; //position that the tower is located
     private Vector3 targetPosition; //position of the target tower
     // Use this for initialization
+    /// <summary>
+    /// Starts this instance.
+    /// </summary>
     void Start () {
         towerPosition = transform.position + Vector3.up;
         /**
@@ -16,6 +19,10 @@ public class damageTower : MonoBehaviour {
         laser.SetWidth(.1f, .1f);
         laser.SetPosition(0, towerPosition);**/
     }
+    /// <summary>
+    /// Called when [trigger enter].
+    /// </summary>
+    /// <param name="col">The col.</param>
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "activeTower")
@@ -31,9 +38,12 @@ public class damageTower : MonoBehaviour {
             //newLaser.SetPosition(1, targetPosition);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    void Update () {
 	
 	}
 }
