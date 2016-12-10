@@ -87,7 +87,7 @@ public class BulletBehavior : MonoBehaviour {
         int layerMask = (1 << 8);
         Collider[] hitColliders = Physics.OverlapSphere(bullet.transform.position, 3,layerMask);
 
-        Debug.Log("Enemies hit: " + hitColliders.Length);
+        //Debug.Log("Enemies hit: " + hitColliders.Length);
 
         Destroy(bullet.gameObject);
 

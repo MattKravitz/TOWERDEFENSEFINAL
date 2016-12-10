@@ -26,7 +26,7 @@ public class onStartButtonClick : MonoBehaviour
     /// <summary>
     /// Called when [mouse down].
     /// </summary>
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         GameObject.FindGameObjectWithTag("gamemaster").GetComponent<waveSpawner>().setStart();//this starts the wave
         Debug.Log("wave starting...");
