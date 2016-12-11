@@ -8,6 +8,7 @@ public class speedTower : MonoBehaviour {
     // Use this for initialization
     void Start () {
         towerPosition = transform.position + Vector3.up;
+        
     }
 	
 	// Update is called once per frame
@@ -18,6 +19,7 @@ public class speedTower : MonoBehaviour {
     {
         if (collide.gameObject.tag == "enemy")
         {
+            Debug.Log("Enemy Slowed");
             target = collide.gameObject.GetComponent<enemy>();
             targetSpeed = target.getSpeed();
             targetSpeed = targetSpeed * .75f;
@@ -28,9 +30,10 @@ public class speedTower : MonoBehaviour {
     {
         if (collide.gameObject.tag == "enemy")
         {
+            Debug.Log("Enemy Speed Restored");
             target = collide.gameObject.GetComponent<enemy>();
             targetSpeed = target.getSpeed();
-            targetSpeed = targetSpeed / .75f;
+            targetSpeed = ((targetSpeed/3) * 4);
             target.setSpeed(targetSpeed);
         }
     }
