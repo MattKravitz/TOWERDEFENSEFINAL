@@ -67,7 +67,6 @@ public class tesLaserScript : MonoBehaviour {
             targetList.Add(collide.gameObject);
             setTarget();
             
-            
            
         }
     }

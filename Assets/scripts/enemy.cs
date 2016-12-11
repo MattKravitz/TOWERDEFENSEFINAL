@@ -217,7 +217,7 @@ public class enemy: MonoBehaviour
     /// Sets the speed.
     /// </summary>
     /// <param name="s">The s.</param>
-    public void setSpeed(int s)
+    public void setSpeed(float s)
     {
         speed = s;
     }
