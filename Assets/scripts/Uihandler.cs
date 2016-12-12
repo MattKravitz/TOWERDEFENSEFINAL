@@ -80,7 +80,7 @@ public class Uihandler : MonoBehaviour {
     void Start () {
         counter = Time.deltaTime;
         moneyVal = playerWallet.getPlayerMoneyTotal();
-        initialHealth = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
+        //initialHealth = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
 
     }
 
@@ -97,7 +97,7 @@ public class Uihandler : MonoBehaviour {
 
         time.text = counter2.ToString();
         money.text = string.Concat("$", moneyVal.ToString());
-        health.text = string.Concat(healthVal.ToString(), "/" , initialHealth.ToString());
+        health.text = string.Concat(healthVal.ToString(), "/" , "100");
         wave.text = string.Concat("WAVE ", waveNumber.ToString());
 	}
 }
