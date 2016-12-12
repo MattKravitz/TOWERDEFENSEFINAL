@@ -44,7 +44,7 @@ public class tesLaserScript : MonoBehaviour {
                 //-----this is where its fucking up
                 targetPosition = currentTarget.transform.position;
                 laser.SetPosition(1, targetPosition);
-             
+                transform.Rotate(0, 0, 5);
                 if (counter >= nextTime)
                 {
                     currentTarget.GetComponent<enemy>().setHealth(currentTarget.gameObject.GetComponent<enemy>().getHealth() - damage);
