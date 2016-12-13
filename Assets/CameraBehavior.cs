@@ -34,6 +34,7 @@ public class CameraBehavior : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Q)) //if the q key is pressed, increment current_camera
         {
+            this.transform.GetComponent<AudioSource>().Play();
             if (current_camera > 2) //make sure it is a valid index
             {
                 current_camera = 0;
@@ -46,6 +47,7 @@ public class CameraBehavior : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.E)) //if the e key is pressed, increment downwards
         {
+            this.transform.GetComponent<AudioSource>().Play();
             if (current_camera < 1)
             {
                 current_camera = 3;
