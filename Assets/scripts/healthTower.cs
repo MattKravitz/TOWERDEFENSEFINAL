@@ -16,6 +16,7 @@ public class healthTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        transform.Rotate(0, 0, 1);
         if(wSpawner.getWaveState() == true && hasHealthIncreased == false){
             currentHealth = GameObject.FindGameObjectWithTag("playerTower").GetComponent<ActiveTowerRotate>().getHealth();
             if (currentHealth < 100)

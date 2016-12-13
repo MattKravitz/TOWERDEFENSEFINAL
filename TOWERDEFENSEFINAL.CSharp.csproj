@@ -95,6 +95,7 @@
     <Compile Include="Assets\scripts\quitScene.cs" />
     <Compile Include="Assets\scripts\rotatingCamera.cs" />
     <Compile Include="Assets\scripts\speedTower.cs" />
+    <Compile Include="Assets\scripts\startWave.cs" />
     <Compile Include="Assets\scripts\sun.cs" />
     <Compile Include="Assets\scripts\towerBaseClass.cs" />
     <Compile Include="Assets\scripts\towerPlacement.cs" />
