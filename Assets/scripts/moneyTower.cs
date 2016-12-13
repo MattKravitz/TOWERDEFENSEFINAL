@@ -19,7 +19,8 @@ public class moneyTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(wSpawner.getWaveState() == true)
+        transform.Rotate(0, 0, 1);
+        if (wSpawner.getWaveState() == true)
         {
             if (currCoundown <= 0f)
             {
