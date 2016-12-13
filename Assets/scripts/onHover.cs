@@ -11,13 +11,14 @@ public class onHover : MonoBehaviour {
     private Vector3 dir;
     private Vector3 dir2;
     private int j = 0;
+    private int a = 0;
 
     // Use this for initialization
     /// <summary>
     /// Starts this instance.
     /// </summary>
     void Start () {
-        
+
         initialPosition = this.transform.position;
         endPosition = this.transform.position + Vector3.up * .5f;
 
@@ -38,6 +39,11 @@ public class onHover : MonoBehaviour {
     /// </summary>
     void OnMouseOver()
     {
+        if (a == 0)
+        {
+            this.transform.GetComponent<AudioSource>().Play();
+            a = 1;
+        }
         //if there isnt a tower at this position, then exectute this onmousedown
         if (this.gameObject.GetComponent<towerPlacement>().towerCheck[j] != 1)
         {
@@ -50,6 +56,7 @@ public class onHover : MonoBehaviour {
             if (Vector3.Distance(this.transform.position, endPosition) <= .1f)
             {
                 this.transform.position = endPosition;
+               
             }
         }
     }
@@ -59,6 +66,7 @@ public class onHover : MonoBehaviour {
     void OnMouseExit()
     {
         this.transform.position = initialPosition;
+        a = 0;
     }
     
     
