@@ -13,7 +13,7 @@ public class speedTower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        transform.Rotate(0, 0, 1);
 	}
     void OnTriggerEnter(Collider collide)
     {
