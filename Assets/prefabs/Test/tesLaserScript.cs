@@ -9,6 +9,8 @@ public class tesLaserScript : MonoBehaviour {
     private Vector3 targetPosition; //position of the primary target
     private GameObject currentTarget;
 
+    public GameObject ballisticsEffect;
+
     private AudioSource sound;
 
     private float nextTime = 0;
@@ -66,9 +68,11 @@ public class tesLaserScript : MonoBehaviour {
                 transform.Rotate(0, 0, 5);
                 if (counter >= nextTime)
                 {
+                    
+                    GameObject ballisticEffect = (GameObject)Instantiate(ballisticsEffect, targetPosition, transform.rotation);
                     currentTarget.GetComponent<enemy>().setHealth(currentTarget.gameObject.GetComponent<enemy>().getHealth() - damage);
                     nextTime += interval;
-
+                    Destroy(ballisticEffect, .5f);
                 }
                 
             }
