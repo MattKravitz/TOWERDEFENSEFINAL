@@ -9,15 +9,22 @@ public class tesLaserScript : MonoBehaviour {
     private Vector3 targetPosition; //position of the primary target
     private GameObject currentTarget;
 
+    public GameObject ballisticsEffect;
+
+    private AudioSource sound;
+
     private float nextTime = 0;
     private float interval = 1;
     private float counter = 0;
     public int damage = 5;
 
+    private int a = 0;
+
     // Use this for initialization
     void Start () {
         towerPosition = transform.position + Vector3.up;
         counter = Time.deltaTime;
+        sound = gameObject.GetComponent<AudioSource>();
 
         laser = GetComponent<LineRenderer>();
         laser.SetWidth(.1f, .1f);
@@ -28,6 +35,20 @@ public class tesLaserScript : MonoBehaviour {
 	void Update () {
         counter = counter + Time.deltaTime;
         
+        if(targetList.Count > 0 && a == 0)
+        {
+            sound.Play();
+            a = 1;
+        }
+        else if(targetList.Count == 0 && a == 1)
+        {
+            sound.Stop();
+            a = 0;
+        }
+
+
+
+
         if (targetList.Count != 0)
         {
             while (currentTarget == null)
@@ -47,9 +68,11 @@ public class tesLaserScript : MonoBehaviour {
                 transform.Rotate(0, 0, 5);
                 if (counter >= nextTime)
                 {
+                    
+                    GameObject ballisticEffect = (GameObject)Instantiate(ballisticsEffect, targetPosition, transform.rotation);
                     currentTarget.GetComponent<enemy>().setHealth(currentTarget.gameObject.GetComponent<enemy>().getHealth() - damage);
                     nextTime += interval;
-
+                    Destroy(ballisticEffect, .5f);
                 }
                 
             }

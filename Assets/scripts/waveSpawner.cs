@@ -66,7 +66,7 @@ public class waveSpawner : MonoBehaviour {
                 countdown = randCountdown;//set the next time for spawn
                 i++;
                 //set multiple enemies to spawn in a row
-                if(randCountdown > 5 && healthPool>1000+waveNumber*5)//TODO: account for increase in enemy health
+                if(randCountdown > 2 && healthPool>1000+waveNumber*5)//TODO: account for increase in enemy health
                 {
                     spawnWave = true;
                     spawnWaveAmount = Random.Range(5,11);
