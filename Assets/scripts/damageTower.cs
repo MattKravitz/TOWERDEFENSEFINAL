@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class damageTower : MonoBehaviour {
     private int damage;
-    private int damageIncrease = 5;
+    private int damageIncrease = 2;
     private LineRenderer laser;
     public List<GameObject> towerList = new List<GameObject>();
     private Vector3 towerPosition; //position that the tower is located
@@ -30,18 +30,10 @@ public class damageTower : MonoBehaviour {
     {
         if (col.gameObject.tag == "activeTower")
         {
-            /*
-            LineRenderer newLaser = gameObject.AddComponent<LineRenderer>();
-            newLaser = GetComponent<LineRenderer>();
-            newLaser.SetWidth(.1f, .1f);
-            newLaser.SetPosition(0, towerPosition);
-            */
             towerList.Add(col.gameObject);
             damage = col.gameObject.GetComponent<tesLaserScript>().getDamage();
             col.gameObject.GetComponent<tesLaserScript>().setDamage(damage + damageIncrease);
             targetPosition = col.gameObject.transform.position;
-            
-            //newLaser.SetPosition(1, targetPosition);
         }
     }
 
