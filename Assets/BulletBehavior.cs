@@ -5,7 +5,7 @@ using System;
 public class BulletBehavior : MonoBehaviour {
 
     public Transform bullet; //the transform that is moving
-    private static float speed = 0; //the speed at which the object travels
+    private static float speed = 2.3f; //the speed at which the object travels
 
     //These control how much to move in x and z directions based on the angle of the bullet
     private float x_multiplier;
@@ -52,30 +52,26 @@ public class BulletBehavior : MonoBehaviour {
         }
 
         
+
     }
 
-    /// <summary>
-    /// Fixeds the update.
-    /// </summary>
     public void FixedUpdate()
     {
-        
         //used to move the bullet along the angle based on speed variable
         float timeIncrement = Time.time - startTime;
         float v_vertical = Mathf.Sin(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
         float v_horizontal = Mathf.Cos(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
-   
+
         //Debug.Log("horizontal component: "+v_horizontal);
         //Debug.Log("vertical component: " + v_vertical);
 
         translater =
             new Vector3(
                (v_horizontal * x_multiplier * timeIncrement)
-               ,((v_vertical * timeIncrement) + (-4.3f * timeIncrement * timeIncrement))
-               ,(v_horizontal * z_multiplier * timeIncrement) );
+               , ((v_vertical * timeIncrement) + (-4.3f * timeIncrement * timeIncrement))
+               , (v_horizontal * z_multiplier * timeIncrement));
 
         bullet.Translate(translater, Space.World);
-        
     }
 
     /// <summary>
@@ -93,7 +89,7 @@ public class BulletBehavior : MonoBehaviour {
 
         for(int i=0; i < hitColliders.Length; i++)
         {
-            hitColliders[i].gameObject.GetComponent<enemy>().attackEnemy(20);
+            hitColliders[i].gameObject.GetComponent<enemy>().attackEnemy(5);
         }
 
         return true;
