@@ -1,158 +1,193 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// 
-/// </summary>
 public class towerVariables : MonoBehaviour {
-
+    [Header("Enemy Attributes")]
     public int enemyHealth;
     public float enemySpeed;
     public int enemyMV; //enemyMoneyValue
 
-    public float towerShotSpeed;
-    public float towerDamage;
-    public float towerRange;
+    [Header("Tower Attributes")]
+    public float towerShotSpeed =  2f;
+    public int towerDamage = 1;
+    public float towerRange = 3f;
+    public Transform m_target;
+    private enemy targetedEnemy;
 
 
+    
+    [Header("Projectile/Shooting Setup")]
+    public GameObject projectile;
+    public Transform shootPosition;
+    public float shotCooldown = 1;
+
+    [Header("Targeting Variables")]
+    public string enemiesTag = "enemy";
+    public Transform rotatingPiece;
+    public float rotationVelocity = 5f;
 
     // Use this for initialization
-    /// <summary>
-    /// Starts this instance.
-    /// </summary>
-    void Start () {
+    void Start ()
+    {
+        InvokeRepeating("refreshTarget", 2f, .5f);
+	}
 	
+	// Update is called once per frame
+	void Update ()
+    {
+	    if(m_target == null)
+        {
+            //return; //empty return statement to kill update function if no target exists.
+        }
+        else
+        {
+            acquireTarget();
+            if (shotCooldown <= 0f)
+            {
+                fire();
+                shotCooldown = 1f / towerShotSpeed;
+            }
+
+            shotCooldown -= Time.deltaTime;
+        }
 	}
 
-    // Update is called once per frame
+
+
+    public void fire()
+    {
+        /**This is a temporary position configuration for the prototype only
+        *   this will produce awkward graphics since the projectile will be launched from the same coordinate as the tower.
+        **/
+        
+        GameObject projectileShot = (GameObject)Instantiate(projectile, shootPosition.position, shootPosition.rotation);
+        projectile projectile1 = projectileShot.GetComponent<projectile>();
+
+        projectile1.setDamage(towerDamage);
+        //projectile1.setShotPoint(shootPosition.position);
+
+        if (projectile != null)
+        {
+            Debug.Log("Firing");
+            projectile1.trace(m_target.transform, targetedEnemy);
+        }
+
+    }
+
+   // void OnDrawGizmosSelected()
+    //{
+     //   Gizmos.DrawWireSphere(transform.position, towerRange);
+   // }
+   void acquireTarget()
+    {
+        //Debug.Log("HAS TARGET");
+        Vector3 direction = m_target.position - shootPosition.position;
+        Quaternion towerRotation = Quaternion.LookRotation(direction);
+        Vector3 convertedRotation = Quaternion.Lerp(rotatingPiece.rotation, towerRotation, Time.deltaTime * rotationVelocity).eulerAngles;
+        rotatingPiece.rotation = Quaternion.Euler(0f, convertedRotation.y, 0f);
+    }
     /// <summary>
-    /// Updates this instance.
+    /// Refreshes the target.
     /// </summary>
-    void Update () {
-	
-	}
+    void refreshTarget()
+    {
+        GameObject[] enemiesArray = GameObject.FindGameObjectsWithTag(enemiesTag);
+        float smallestDistance = Mathf.Infinity;
+        GameObject closestEnemy = null;
+
+        foreach(GameObject enemy in enemiesArray)
+        {
+            float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if(enemyDistance <= smallestDistance)
+            {
+                smallestDistance = enemyDistance;
+                closestEnemy = enemy;
+                Debug.Log("Redefining Target");
+            }
+
+        }
+
+        if(closestEnemy != null && smallestDistance <= towerRange)
+        {
+            Debug.Log("Target Selected");
+            m_target = closestEnemy.transform;
+            targetedEnemy = closestEnemy.GetComponent<enemy>();
+            //targetedEnemy.setHealth(5);
+        }
+        else
+        {
+            m_target = null;
+            //Debug.Log("No Target");
+        }
+    }
+
+
+
 
     //Sets the enemy health to the paramater
-    /// <summary>
-    /// Sets the enemy health.
-    /// </summary>
-    /// <param name="health">The health.</param>
     public void setEnemyHealth(int health)
     {
-        enemyHealth = health; 
+        enemyHealth = health;
     }
 
     //Returns the enemyHealth
-    /// <summary>
-    /// Gets the enemy health.
-    /// </summary>
-    /// <returns></returns>
     public int getEnemyHealth()
     {
         return enemyHealth;
 
     }
 
-    //Sets the enemy speed
-    /// <summary>
-    /// Sets the enemy speed.
-    /// </summary>
-    /// <param name="speed">The speed.</param>
     public void setEnemySpeed(float speed)
     {
         enemySpeed = speed;
 
     }
 
-    //Returns the enemey speed
-    /// <summary>
-    /// Gets the enemy speed.
-    /// </summary>
-    /// <returns></returns>
     public float getEnemySpeed()
     {
-        return enemySpeed; 
+        return enemySpeed;
     }
 
-    //Sets the money multiplier
-    /// <summary>
-    /// Sets the money multiplier.
-    /// </summary>
-    /// <param name="money">The money.</param>
     public void setMoneyMultiplier(int money)
     {
         enemyMV = money;
     }
 
-    //Returns the money multiplier
-    /// <summary>
-    /// Gets the money multiplier.
-    /// </summary>
-    /// <returns></returns>
     public int getMoneyMultiplier()
     {
-        return enemyMV; 
+        return enemyMV;
     }
 
-    //Sets the tower shot speed
-    /// <summary>
-    /// Sets the tower shot speed.
-    /// </summary>
-    /// <param name="shotSpeed">The shot speed.</param>
     public void setTowerShotSpeed(float shotSpeed)
     {
         towerShotSpeed = shotSpeed;
 
     }
 
-    //Returns the tower shot speed
-    /// <summary>
-    /// Gets the tower speed.
-    /// </summary>
-    /// <returns></returns>
     public float getTowerSpeed()
     {
         return towerShotSpeed;
     }
 
-    //Sets the tower range
-    /// <summary>
-    /// Sets the tower range.
-    /// </summary>
-    /// <param name="range">The range.</param>
     public void setTowerRange(float range)
     {
         towerRange = range;
 
     }
 
-    //Returns the tower range
-    /// <summary>
-    /// Gets the tower range.
-    /// </summary>
-    /// <returns></returns>
     public float getTowerRange()
     {
         return towerRange;
     }
 
-    //Sets the tower damage
-    /// <summary>
-    /// Sets the tower damage.
-    /// </summary>
-    /// <param name="damage">The damage.</param>
-    public void setTowerDamage(float damage)
+    public void setTowerDamage(int damage)
     {
         towerDamage = damage;
 
     }
 
-    //Returns the tower damage
-    /// <summary>
-    /// Gets the tower damage.
-    /// </summary>
-    /// <returns></returns>
-    public float getTowerDamage()
+    public int getTowerDamage()
     {
         return towerDamage;
     }
