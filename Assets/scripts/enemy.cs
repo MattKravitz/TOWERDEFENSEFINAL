@@ -53,83 +53,39 @@ public class enemy: MonoBehaviour
 
         if (speed == 1)
         {
+            health = 100;
             //Loop to increase speed every five rounds, and health every ten
-            for (int i = 1; i <= wave; i++)
-            {
-                health = 100;
-                if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
-                {
-                    speed = speed + .25f;
-                }
-                if (i % 10 == 0) //If a multiple of 10, increase health by 25
-                {
-                    health = health + 25;
-                }
-            }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
-          
             gameObject.GetComponent<Renderer>().material.color = Color.cyan;
-          
-        }
-        if (speed == 2)
-        {
-            //Loop to increase speed every five rounds, and health every ten
-
-            for (int i = 1; i <= wave; i++)
-            {
-                health = 75;
-                if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
-                {
-                    speed = speed + .25f;
-                }
-                if(i % 10 == 0) //If a multiple of 10, increase health by 25
-                {
-                    health = health + 25;
-                }
-            }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
 
         }
-        if (speed == 3)
+        else if (speed == 2)
         {
             //Loop to increase speed every five rounds, and health every ten
-
-            for (int i = 1; i <= wave; i++)
-            {
-                health = 50;
-                if (i % 5 == 0) //If a multiple of 5, increase speed by .25f
-                {
-                    speed = speed + .25f;
-                }
-                if (i % 10 == 0) //If a multiple of 10, increase health by 25
-                {
-                    health = health + 25;
-                }
-
-            }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
-
+            health = 75;
+        }
+        else if (speed == 3)
+        {
+            //Loop to increase speed every five rounds, and health every ten
+            health = 50;
             gameObject.GetComponent<Renderer>().material.color = Color.black;
         }
-        if (speed == 4)
+        else if (speed == 4)
         {
             //Loop to increase speed every five rounds, and health every ten
-
-            for (int i = 1; i <= wave; i++)
-            {
-                health = 25;
-                if(i % 5 == 0) //If a multiple of 5, increase speed by .25f
-                {
-                    speed = speed + .25f;
-                }
-            }
-            Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
-           
+            health = 25;
             gameObject.GetComponent<Renderer>().material.color = Color.green;
      
         }
 
-        setMoneyValue(getHealth()/10);
+        for (int i = 1; i <= wave; i++)
+        {
+            //If a multiple of 5, increase speed by .25f
+            speed = speed + .1f;
+            //If a multiple of 10, increase health by 25
+            health = health + 5;
+        }
+        Debug.Log("Speed: " + getSpeed() + " Health: " + getHealth() + " Wave: " + wave);
+        setMoneyValue(getHealth()/5);
     }
     /// <summary>
     /// Updates this instance.

@@ -51,12 +51,6 @@ public class BulletBehavior : MonoBehaviour {
             Destroy(bullet.gameObject);
         }
 
-        
-
-    }
-
-    public void FixedUpdate()
-    {
         //used to move the bullet along the angle based on speed variable
         float timeIncrement = Time.time - startTime;
         float v_vertical = Mathf.Sin(Mathf.Deg2Rad * bullet.eulerAngles.z) * speed;
@@ -72,6 +66,12 @@ public class BulletBehavior : MonoBehaviour {
                , (v_horizontal * z_multiplier * timeIncrement));
 
         bullet.Translate(translater, Space.World);
+
+    }
+
+    public void FixedUpdate()
+    {
+        
     }
 
     /// <summary>
