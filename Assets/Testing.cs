@@ -7,6 +7,7 @@ public class Testing : MonoBehaviour {
     public GameObject bullet;
     private Vector3 aboutTheCenter;
     public GameObject startTower;
+    public GameObject playerWallet;
     
     // Use this for initialization
 	void Start () {
@@ -26,6 +27,10 @@ public class Testing : MonoBehaviour {
             StartCoroutine(bullet_test());
 
  
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            playerWallet.GetComponent<playerWallet>().addMoney(100);
         }
 
     }
