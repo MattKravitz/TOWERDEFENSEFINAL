@@ -6,7 +6,7 @@ public class moneyTower : MonoBehaviour {
     private GameObject thisGame;
     private waveSpawner wSpawner;
     private marketHandler pWallet;
-    private static float countdown = 10f;
+    private static float countdown = 1f;
     private float currCoundown = countdown;
     private int moneyValue = 1;
     
