@@ -44,6 +44,6 @@ public class damageTower : MonoBehaviour {
     /// Updates this instance.
     /// </summary>
     void Update () {
-	
+        transform.Rotate(0, 0, 1);
 	}
 }
