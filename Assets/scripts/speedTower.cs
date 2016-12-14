@@ -22,7 +22,7 @@ public class speedTower : MonoBehaviour {
             Debug.Log("Enemy Slowed");
             target = collide.gameObject.GetComponent<enemy>();
             targetSpeed = target.getSpeed();
-            targetSpeed = targetSpeed * .75f;
+            targetSpeed = targetSpeed * .5f;
             target.setSpeed(targetSpeed);
         }
     }
@@ -33,7 +33,7 @@ public class speedTower : MonoBehaviour {
             Debug.Log("Enemy Speed Restored");
             target = collide.gameObject.GetComponent<enemy>();
             targetSpeed = target.getSpeed();
-            targetSpeed = ((targetSpeed/3) * 4);
+            targetSpeed = ((targetSpeed) * 2);
             target.setSpeed(targetSpeed);
         }
     }
