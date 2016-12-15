@@ -14,10 +14,11 @@ public class PlayerShoot : MonoBehaviour
     private float shot_speed = 0;
 
     private float delayTime = 0;
+    
     /// <summary>
     /// Rotates the tower and shoots projectiles based on user input
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         //if the d key is pressed, rotate right
         if (Input.GetKey(KeyCode.D) && !(Input.GetKey(KeyCode.A)))
@@ -44,14 +45,14 @@ public class PlayerShoot : MonoBehaviour
             vertical = 0;
         }
         //rotate by the turn factor
-        turret.RotateAround(turret.position,Vector3.up, turn);
+        turret.RotateAround(turret.position, Vector3.up, turn);
         turret.Rotate(new Vector3(0, 0, vertical));
 
-        if(turret.eulerAngles.z > 90 && turret.eulerAngles.z < 120)
+        if (turret.eulerAngles.z > 90 && turret.eulerAngles.z < 120)
         {
             turret.Rotate(new Vector3(0, 0, 90 - turret.eulerAngles.z));
         }
-        else if(turret.eulerAngles.z < 300 && turret.eulerAngles.z > 120)
+        else if (turret.eulerAngles.z < 300 && turret.eulerAngles.z > 120)
         {
             turret.Rotate(new Vector3(0, 0, 300 - turret.eulerAngles.z));
         }
@@ -65,7 +66,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space)) //press
         {
-            if(Time.time > delayTime)
+            if (Time.time > delayTime)
             {
                 Instantiate(bullet, turret.position, turret.rotation);
                 delayTime = Time.time + 0.2f;
